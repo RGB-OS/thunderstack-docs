@@ -1,0 +1,2 @@
+# ⚡ RGB Lightning Node
+
