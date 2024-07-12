@@ -9,5 +9,10 @@ The platform **does NOT store** the token itself for security reasons, only the 
 
 1. **Thunderstrack  API:**\
    [**https://cloud.thunderstack.org/docs**](https://cloud.thunderstack.org/docs)
-2. **RGB Lightning Node API**\
-   [**https://cloud.thunderstack.org/rgb-docs**](https://cloud.thunderstack.org/rgb-docs)
+2.  **RGB Lightning Node API**\
+    [**https://cloud.thunderstack.org/rgb-docs**](https://cloud.thunderstack.org/rgb-docs)\
+    \
+    You can also access the RGB Lightning Node API through the UI. On node page select "Node API Docs" from the sidebar to view the node APIs.\
+
+
+    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
