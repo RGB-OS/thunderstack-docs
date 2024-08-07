@@ -1,6 +1,6 @@
-# Create Node
+# Create RLN Node
 
-**Step 1: Initiate Node Creation**
+**Step 1: Initiate RLN Node Creation**
 
 1.  **Access the Nodes Page**:
 
@@ -10,7 +10,7 @@
 2. **Create a New Node**:
    * Click on the "Create Node" button. This action will redirect you to a new page where you can begin the node creation process.
 
-**Step 2: Configure Your Node**
+**Step 2: Configure Your RLN Node**
 
 1. **Fill Out the Node Creation Form**:
    * On the redirected page, you will see a form requiring you to enter the name for your new node. This name will help you identify the node in your dashboard and should be unique to each node you create.

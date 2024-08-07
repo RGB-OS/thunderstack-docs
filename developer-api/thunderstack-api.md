@@ -1,6 +1,6 @@
-# Thunderstrack  API
+# ThunderStack  API
 
-**Thunderstrack  API:**\
+**ThunderStack  API:**\
 
 
 [**https://cloud.thunderstack.org/docs**](https://cloud.thunderstack.org/docs)

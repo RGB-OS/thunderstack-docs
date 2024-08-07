@@ -4,7 +4,7 @@
 &#x20;\
 `Authorization: Bearer {accessToken}` - This authorization header ensures that the API requests are securely authenticated.
 
-1. **Thunderstrack  API:**\
+1. **ThunderStrack RGB Cloud API:**\
    [**https://www.thunderstack.org/docs**](https://www.thunderstack.org/docs)
 2. **RGB Lightning Node API**\
    [**https://www.thunderstack.org/rgb-docs**](https://www.thunderstack.org/rgb-docs)&#x20;

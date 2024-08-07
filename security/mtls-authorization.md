@@ -2,7 +2,7 @@
 
 **Overview**
 
-For enhanced security and controlled access to nodes hosted on Amazon EC2, Thunderstack.org utilizes a dual-layered authorization approach that combines the built-in mTLS capabilities of AWS API Gateway with a custom Lambda authorizer. This setup provides comprehensive certificate validation and fine-grained access control.
+For enhanced security and controlled access to nodes hosted on Amazon EC2, thunderstack.org utilizes a dual-layered authorization approach that combines the built-in mTLS capabilities of AWS API Gateway with a custom Lambda authorizer. This setup provides comprehensive certificate validation and fine-grained access control.
 
 **Integration of API Gateway mTLS and Lambda Authorizer**
 

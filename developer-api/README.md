@@ -5,9 +5,9 @@ The platform **does NOT store** the token itself for security reasons, only the 
 
 **Access Token Utilization for API Authorization:** Users can employ the access tokens generated on the platform to authorize interactions with two distinct types of APIs available.\
 &#x20;\
-`Authorization: Bearer {accessToken}` - This authorization header ensures that the API requests are securely authenticated. Follow this [article](../general/getting-started-with-thunderstack/create-api-token.md) to create `accessToken`
+`Authorization: Bearer {accessToken}` - This authorization header ensures that the API requests are securely authenticated. Follow this [article](../general/getting-started-with-thunderstack-rgb-cloud/create-api-token.md) to create `accessToken`
 
-1. **Thunderstrack  API:**\
+1. **ThunderStack  API:**\
    [**https://cloud.thunderstack.org/docs**](https://cloud.thunderstack.org/docs)
 2.  **RGB Lightning Node API**\
     [**https://cloud.thunderstack.org/rgb-docs**](https://cloud.thunderstack.org/rgb-docs)\

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Thunderstack application enables users to efficiently run and manage RGB
-  Lightning nodes.
+  ThunderStack RGB Cloud platform enables users to efficiently run and manage
+  RGB Lightning Network nodes.
 ---
 
 # 📔 Overview

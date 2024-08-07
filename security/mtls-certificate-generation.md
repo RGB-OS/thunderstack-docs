@@ -8,7 +8,7 @@
 
 #### Description of Certificate Generation
 
-To ensure secure access to user nodes via API calls, Thunderstack.org utilizes a system where individual mTLS certificates are dynamically generated for each node. This certificate generation is managed by a dedicated AWS Lambda function. Here is an in-depth overview of this process:
+To ensure secure access to user nodes via API calls, thunderstack.org utilizes a system where individual mTLS certificates are dynamically generated for each node. This certificate generation is managed by a dedicated AWS Lambda function. Here is an in-depth overview of this process:
 
 1. **AWS Lambda Function**: A specialized Lambda function is responsible for the entire lifecycle of certificate generation, tailored to individual node requirements.
 2. **Dynamic Generation**: Each request for node access triggers the creation of a unique mTLS certificate, ensuring that communications are secured specifically for each node interaction.

@@ -6,35 +6,35 @@ PLANS
 
 #### Starter
 
-* **Price:** $60 per month
+* **Price:** $35 perf month
 * **Includes:**
-  * 2 Compute Credits (\~1 Standard Node)
+  * 1 RGB Lightning Node (RLN)
   * 250,000 API Calls
   * 1 User
-  * Business Hours Ticket Support
-  * Business Hour Chat Support
+  * Ticket Support
+  * Chat Support
   * Personal Onboarding
 
 #### Growth
 
-* **Price:** $500 per month
+* **Price:** $99 per month
 * **Includes:**
-  * 10 Compute Credits (\~1 Professional Node)
+  * 3 RGB Lightning Nodes (RLN)
   * 1,000,000 API Calls
-  * Business Hours Ticket Support
-  * Business Hour Chat Support
+  * Ticket Support
+  * Chat Support
   * Personal Onboarding
 
 #### Scale
 
 * **Price:** Contact us
 * **Includes:**
-  * 30 Compute Credits (Multiple Nodes)
-  * 5,000,000 API Calls
+  * Unlimited Compute Credits
+  * Unlimited API Calls
   * Multiple Users
-  * Host any additional RGB software
-  * Business Hour Ticket Support
-  * Business Hour Chat Support
+  * Host any additional RGB/Bitcoin software
+  * Ticket Support
+  * Chat Support
   * Personal Onboarding
 
 
