@@ -21,6 +21,14 @@
 [openapi (1).yaml](<../.gitbook/assets/openapi (1).yaml>)
 {% endswagger %}
 
+{% swagger src="../.gitbook/assets/openapi (2).yaml" path="/api/nodes/{id}/start" method="post" %}
+[openapi (2).yaml](<../.gitbook/assets/openapi (2).yaml>)
+{% endswagger %}
+
+{% swagger src="../.gitbook/assets/openapi (2).yaml" path="/api/nodes/{id}/stop" method="post" %}
+[openapi (2).yaml](<../.gitbook/assets/openapi (2).yaml>)
+{% endswagger %}
+
 {% swagger src="../.gitbook/assets/openapi (1).yaml" path="/api/nodes/{id}/logs" method="get" %}
 [openapi (1).yaml](<../.gitbook/assets/openapi (1).yaml>)
 {% endswagger %}

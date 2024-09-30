@@ -1,0 +1,358 @@
+openapi: 3.0.3
+info:
+  version: "1"
+  title: "Thunderstack API"
+  description: "This is public API for Thunderstack."
+  # termsOfService: https://google.com
+servers:
+  - url: https://cloud-api.thunderstack.org/
+  # - url: http://localhost:3002
+  # - url: http://localhost:3003
+tags:
+  - name: Thunderstack API
+    description: APIs to manage Thunderstack nodes
+  - name: Channels
+    description: APIs to perform operations related to LN channels
+  - name: Peers
+    description: APIs to perform operations related to LN peers
+  - name: Payments
+    description: APIs to perform operations related to LN payments
+  - name: Invoices
+    description: APIs to perform operations related to LN invoices
+  - name: On-chain
+    description: APIs to perform on-chain operations
+  - name: RGB
+    description: APIs to perform RGB operations
+  - name: Swaps
+    description: APIs to perform asset swaps
+  - name: Other
+    description: APIs to perform other operations
+paths:
+  /api/nodes:
+    get:
+      tags:
+          - Thunderstack API
+      summary: Retrieve all nodes
+      description: Returns a list of all nodes including their details and builds.
+      security:
+        - BearerAuth: []
+      responses:
+        200:
+          description: A list of nodes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NodesResponse'
+        500:
+          description: Internall server error
+    post:
+      tags:
+          - Thunderstack API
+      summary: Create a new node
+      description: This endpoint allows you to create a new node.
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNode'
+      responses:
+        200:
+          description: Node created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A message describing the outcome of the action.
+        400:
+          description: Validation error
+        500:
+          description: Internall server error
+    delete:
+      tags:
+          - Thunderstack API
+      summary: Destroy a node
+      description: This endpoint destroys a node by its identifier.
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DestroyNode'
+      responses:
+        200:
+          description: Node destroyed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: "Confirmation message indicating the node was destroyed."
+        400:
+          description: Validation error or node not found
+  /api/nodes/{id}:
+    get:
+      tags:
+          - Thunderstack API
+      summary: Retrieve a specific node
+      description: Returns details of a specific node by node ID.
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The unique identifier of the node.
+      responses:
+              200:
+                description: Details of the node
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/NodeSchema'
+              404:
+                description: Node not found
+              400:
+                description: Invalid node ID supplied
+  /api/nodes/{id}/start:
+    post:
+        tags:
+          - Thunderstack API
+        summary: Start a Node
+        security:
+          - BearerAuth: []
+        description: Start a Node
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+            description: The unique identifier of the node.
+        responses:
+          200:
+            description: Start a Node initiated successfully.
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                  message:
+                    type: string
+                    description: A message describing the outcome of the action.
+          400:
+            description: Invalid request parameters.
+          404:
+            description: Node not found.
+  /api/nodes/{id}/stop:
+    post:
+        tags:
+          - Thunderstack API
+        summary: Stop a Node
+        security:
+          - BearerAuth: []
+        description: Stop a Node
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+            description: The unique identifier of the node.
+        responses:
+          200:
+            description: Stop a Node initiated successfully.
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                  message:
+                    type: string
+                    description: A message describing the outcome of the action.
+          400:
+            description: Invalid request parameters.
+          404:
+            description: Node not found.
+  /api/nodes/{id}/logs:
+    post:
+        tags:
+          - Thunderstack API
+        summary: Trigger log export
+        security:
+          - BearerAuth: []
+        description: Initiates an export of logs for a specified node.
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+            description: The unique identifier of the node.
+        responses:
+          200:
+            description: Log export initiated successfully.
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    taskId:
+                      type: string
+                      description: The task ID for tracking the log export process.
+          400:
+            description: Invalid request parameters.
+          404:
+            description: Node not found.
+    get:
+      tags:
+        - Thunderstack API
+      summary: Get log download URLs
+      description: Retrieves the download URLs for logs related to a specific task ID.
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The unique identifier of the node.
+        - in: query
+          name: taskId
+          required: true
+          schema:
+            type: string
+          description: The task ID associated with the log export.
+      responses:
+        200:
+          description: List of log download URLs retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: string
+                    description: An array of download URLs for the logs.
+        400:
+          description: Invalid request parameters.
+        404:
+          description: Node or task not found.
+  /api/nodes/{id}/generate-cert:
+      post:
+        tags:
+          - Thunderstack API
+        summary: Generate mTLS Certificates
+        description: Generates certificates for mutual TLS authentication for a specific node.
+        security:
+          - BearerAuth: []
+        parameters:
+         - $ref: '#/components/parameters/nodeId'
+        responses:
+          200:
+            description: Certificates generated successfully.
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    certificate:
+                      type: string
+                      description: The PEM formatted certificate.
+                    certificateChain:
+                      type: string
+                      description: The PEM formatted chain of trust for the certificate.
+                    privateKey:
+                      type: string
+                      description: The PEM formatted private key.
+                    publicKey:
+                      type: string
+                      description: The PEM formatted public key.
+          400:
+            description: Invalid node ID provided.
+          404:
+            description: Node not found.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    nodeId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      description: The unique identifier of the node.  
+  schemas:
+    CreateNode:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the node.
+      required:
+        - name
+    DestroyNode:
+      type: object
+      properties:
+        destroyNodeId:
+          type: string
+          description: Unique identifier of the node to be destroyed.
+      required:
+        - destroyNodeId
+    NodesResponse:
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeSchema'
+               # List all possible statuses here
+    NodeSchema:
+       type: object
+       properties:
+          builds:
+            type: array
+            items:
+              type: object
+              properties:
+                exampleProperty:
+                  type: string
+          initialized:
+            type: boolean
+          invoke_url:
+            type: string
+          name:
+            type: string
+          nodeId:
+            type: string
+          port:
+            type: integer
+          protocol:
+            type: string
+          status:
+            type: string
+            enum:
+                - STARTING
+                - RUNNING
+                - DESTROING
+                - DESTROYED 
+                - IN_PROGRESS
+                - FAILED 
