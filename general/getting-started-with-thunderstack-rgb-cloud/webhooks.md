@@ -5,7 +5,7 @@ description: >-
   well as provide example payloads.
 ---
 
-# Webhook
+# Webhooks
 
 #### Adding a Webhook Endpoint
 

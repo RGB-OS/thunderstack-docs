@@ -7,7 +7,7 @@
     * [Connect to RLN Node](general/getting-started-with-thunderstack-rgb-cloud/connect-to-rln-node.md)
     * [Destroy your Node](general/getting-started-with-thunderstack-rgb-cloud/destroy-your-node.md)
     * [Create API Token](general/getting-started-with-thunderstack-rgb-cloud/create-api-token.md)
-    * [Webhook](general/getting-started-with-thunderstack-rgb-cloud/webhook.md)
+    * [Webhooks](general/getting-started-with-thunderstack-rgb-cloud/webhooks.md)
   * [Updates](general/updates.md)
 * [⚡ RGB Lightning Node (RLN)](rgb-lightning-node-rln/README.md)
   * [Technical Architecture of RGB Lightning Node (RLN) Deployment](rgb-lightning-node-rln/technical-architecture-of-rgb-lightning-node-rln-deployment.md)
