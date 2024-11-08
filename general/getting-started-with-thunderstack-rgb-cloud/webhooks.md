@@ -68,9 +68,9 @@ import * as crypto from 'crypto';
 
 // Main function to handle webhook events
 export async function handleWebhookEvent(request: Request): Promise<any> {
-        // Extract the signature and body (assuming 'event' structure is generic)
+        // Extract the signature and body
         const receivedSignature = request.headers?.['x-thunderstack-signature'] || request.headers?.['X-ThunderStack-Signature'];
-        const body = typeof request.body === 'string' ? request.body : JSON.stringify(event.body);
+        const body = typeof request.body === 'string' ? request.body : JSON.stringify(request.body);
 
         // Retrieve the public key for signature verification
         const publicKey = 'YOUR_PUBLIC_KEY_HERE'
