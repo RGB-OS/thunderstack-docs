@@ -39,7 +39,7 @@ The JSON payload sent to your webhook endpoint will have the following structure
     "nodeId": "your-node-id", // Unique identifier for the node
     "status": "RUNNING" // Current status of the node (one of the predefined statuses)
   },
-  "nodeId": "additionalParams.nodeId" // Reference node ID for additional context
+  "nodeId": "your-node-id" // Unique identifier for the node
 }
 ```
 
