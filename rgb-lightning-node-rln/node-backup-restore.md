@@ -14,7 +14,7 @@
 #### Node Restore
 
 1. **Access Restore Functionality**: Users can manage backups for their nodes by navigating to the specific node’s backup page and find 'Restore node ' section at `nodes/{nodeId}/backup`.
-2. **Uploading the Backup File :**  Click **"**Upload" - this button will generate an S3 upload URL. Once the S3 upload URL is generated, users are prompted to select the backup file from their local device. After selecting the file, the upload begins automatically, securely transferring the backup file to the designated S3 bucket.
+2. **Uploading the Backup File :**  Click **"**&#x55;pload" - this button will generate an S3 upload URL. Once the S3 upload URL is generated, users are prompted to select the backup file from their local device. After selecting the file, the upload begins automatically, securely transferring the backup file to the designated S3 bucket.
 3.  **Restoring Node:**
 
     After the upload is successfully completed, a "Restore" button becomes active on the interface. Users must click this button to start the restoration process. It triggers the node’s `/restore` API. The `/restore` API facilitates the restoration by taking the backup data from S3 and applying it to the node

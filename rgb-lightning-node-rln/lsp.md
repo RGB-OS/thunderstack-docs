@@ -1,51 +1,48 @@
-# ThunderStack LSP1
+# LSP
 
-# LSP Configuration 
+## ThunderStack LSP1
+
+## LSP Configuration
 
 This documentation outlines the key parameters and configuration used for the LSP, which is powered by an RGB Lightning node hosted on ThunderStack Cloud.
 
-## Key Static Fields
+### Key Static Fields
 
-1. **`min_channel_balance_sat`**  
-   - The minimum allowable size of the channel balance.
-   - **Static value**: 100,000 satoshis.
+1. **`min_channel_balance_sat`**
+   * The minimum allowable size of the channel balance.
+   * **Static value**: 100,000 satoshis.
+2. **`min_initial_lsp_balance_sat`**
+   * The minimum amount of liquidity that the LSP will provide when opening a channel.
+   * **Static value**: 100,000 satoshis.
+3. **`max_channel_expiry_blocks`**
+   * The maximum number of blocks that a channel will remain open.
+   * **Static value**: 12,960 blocks (approximately 3 months).
 
-2. **`min_initial_lsp_balance_sat`**  
-   - The minimum amount of liquidity that the LSP will provide when opening a channel.
-   - **Static value**: 100,000 satoshis.
+### Dynamic Fields
 
-3. **`max_channel_expiry_blocks`**  
-   - The maximum number of blocks that a channel will remain open.
-   - **Static value**: 12,960 blocks (approximately 3 months).
+1. **`max_initial_lsp_balance_sat`**
+   * This value is dynamic and based on the current balance of the node.
+   * It is fetched from the `/btcbalance` API, where the `spendable` field from the response defines the actual value of `max_initial_lsp_balance_sat`.
+2. **`lsp_assets`**
+   * This is an array of assets supported by the LSP node.
+   * The list of assets is returned by the `/listassets` API.
 
-## Dynamic Fields
+### Node URIs
 
-1. **`max_initial_lsp_balance_sat`**  
-   - This value is dynamic and based on the current balance of the node.
-   - It is fetched from the `/btcbalance` API, where the `spendable` field from the response defines the actual value of `max_initial_lsp_balance_sat`.
+* The `uris` field consists of the following format:\
+  &#xNAN;**`pubKey@peerDNS:peerPort`**.
+* These values represent the public key, DNS, and port of the Lightning node and are available in the node configuration options within ThunderStack Cloud.
 
-2. **`lsp_assets`**  
-   - This is an array of assets supported by the LSP node.
-   - The list of assets is returned by the `/listassets` API.
+### API
 
-## Node URIs
-
-- The `uris` field consists of the following format:  
-  **`pubKey@peerDNS:peerPort`**.
-  
-- These values represent the public key, DNS, and port of the Lightning node and are available in the node configuration options within ThunderStack Cloud.
-
-## API
-
-### 1 Get Info
+#### 1 Get Info
 
 ```
 MAINNET: https://lsp.thunderstack.org/get_info
 TESTNET: https://lsp.test.thunderstack.org/get_info
 ```
 
-Request No parameters needed.
-Response
+Request No parameters needed. Response
 
 ```json
 {
@@ -66,32 +63,31 @@ Response
 }
 ```
 
-- `max_channel_expiry_blocks <uint32>` The maximum number of blocks a channel will remain open.
-  - MUST be 1 or greater.
-  - This value determines how long the channel will be kept open, approximately 13,140 blocks correspond to 3 months.
-
-- `min_initial_lsp_balance_sat` Minimum number of satoshis the LSP will provide to the channel.
-  - MUST be 0 or greater.
-  - This sets the minimum liquidity the LSP offers when opening a channel.
-- `max_initial_lsp_balance_sat <sat>` Maximum number of satoshis the LSP will provide to the channel.
-  - MUST be 0 or greater.
-  - This is the upper limit of liquidity the LSP can offer, in this case, 1 BTC (100,000,000 sats).
-- `min_channel_balance_sat <sat>` Minimum allowable size for the channel balance.
-  - MUST be 0 or greater.
-  - Defines the smallest possible channel that can be opened, typically around 100,000 sats.
-- `max_channel_balance_sat <sat>` Maximum allowable size for the channel balance.
-  - MUST be 0 or greater.
-  - Defines the largest possible channel size, set to 100,000 sats in this case.
-- `lsp_assets <array>` A list of supported assets for the LSP.
-  - MAY be empty if no specific assets are defined.
-  - This array allows support for various cryptocurrencies or tokenized assets.
-- `uris <array>` URIs of the LSP nodes used for clients to connect.
-  - This contains the node's public key, domain name or IP address, and the port number.
-  - Client MUST connect to one of these URIs.
+* `max_channel_expiry_blocks <uint32>` The maximum number of blocks a channel will remain open.
+  * MUST be 1 or greater.
+  * This value determines how long the channel will be kept open, approximately 13,140 blocks correspond to 3 months.
+* `min_initial_lsp_balance_sat` Minimum number of satoshis the LSP will provide to the channel.
+  * MUST be 0 or greater.
+  * This sets the minimum liquidity the LSP offers when opening a channel.
+* `max_initial_lsp_balance_sat <sat>` Maximum number of satoshis the LSP will provide to the channel.
+  * MUST be 0 or greater.
+  * This is the upper limit of liquidity the LSP can offer, in this case, 1 BTC (100,000,000 sats).
+* `min_channel_balance_sat <sat>` Minimum allowable size for the channel balance.
+  * MUST be 0 or greater.
+  * Defines the smallest possible channel that can be opened, typically around 100,000 sats.
+* `max_channel_balance_sat <sat>` Maximum allowable size for the channel balance.
+  * MUST be 0 or greater.
+  * Defines the largest possible channel size, set to 100,000 sats in this case.
+* `lsp_assets <array>` A list of supported assets for the LSP.
+  * MAY be empty if no specific assets are defined.
+  * This array allows support for various cryptocurrencies or tokenized assets.
+* `uris <array>` URIs of the LSP nodes used for clients to connect.
+  * This contains the node's public key, domain name or IP address, and the port number.
+  * Client MUST connect to one of these URIs.
 
 Every `min/max` options pair MUST ensure that `min <= max`.
 
-# 2 Create Order
+## 2 Create Order
 
 ```
 HTTP POST
@@ -111,45 +107,40 @@ Request:
 }
 ```
 
-## Request Fields
+### Request Fields
 
-- `lsp_balance_sat <sat>`  
+* `lsp_balance_sat <sat>`\
   The size of the channel requested by the client in satoshis.
-  - **Required**
-  - MUST be equal to or greater than `min_initial_lsp_balance_sat` and less than or equal to the amount available (`max_channel_balance_sat`).
-  - MUST be 100,000 sats or greater (as recommended).
-  - Example: `100000` (for a channel of 100,000 sats).
-
-- `public_key <string>`  
+  * **Required**
+  * MUST be equal to or greater than `min_initial_lsp_balance_sat` and less than or equal to the amount available (`max_channel_balance_sat`).
+  * MUST be 100,000 sats or greater (as recommended).
+  * Example: `100000` (for a channel of 100,000 sats).
+* `public_key <string>`\
   The public key of the client's node. This public key will be used by the LSP to open the channel to the node.
-  - **Required**
-  - The client must already be connected to the LSP node before sending the request.
-  - Example: `"030e5245c3d4ad7a6ed15da5994ee436ebc42fc7114854fa722e737f9b8f23f832"`
-
-- `channel_expiry_blocks <uint32>`  
+  * **Required**
+  * The client must already be connected to the LSP node before sending the request.
+  * Example: `"030e5245c3d4ad7a6ed15da5994ee436ebc42fc7114854fa722e737f9b8f23f832"`
+* `channel_expiry_blocks <uint32>`\
   The number of blocks for which the channel will remain open.
-  - **Required**
-  - MUST be less than or equal to `max_channel_expiry_blocks` from the `/get_info` response.
-  - Example: `12960` (for a channel open for 90 days).
-
-- `asset_amount <sat>`  
+  * **Required**
+  * MUST be less than or equal to `max_channel_expiry_blocks` from the `/get_info` response.
+  * Example: `12960` (for a channel open for 90 days).
+* `asset_amount <sat>`\
   The amount of a specific asset (if applicable) requested for the channel.
-  - **Optional**
-  - If provided, `asset_id` is also required.
-  - Example: `50000` (for an asset amount of 50,000 satoshis).
-
-- `asset_id <string>`  
+  * **Optional**
+  * If provided, `asset_id` is also required.
+  * Example: `50000` (for an asset amount of 50,000 satoshis).
+* `asset_id <string>`\
   The ID of the asset being used for the channel.
-  - **Optional**
-  - Required if `asset_amount` is provided.
-  - Example: `"rgb:25w4w77-sk7mfxMJC-cqiZmmZrx-hzrvcADto-R3z6em592-88fsXVV"`
-
-- `refund_on_chain_address <string>`  
+  * **Optional**
+  * Required if `asset_amount` is provided.
+  * Example: `"rgb:25w4w77-sk7mfxMJC-cqiZmmZrx-hzrvcADto-R3z6em592-88fsXVV"`
+* `refund_on_chain_address <string>`\
   The on-chain Bitcoin address where refunds will be sent if the channel opening fails.
-  - **Optional** if the client intends to pay with an on-chain Bitcoin payment.
-  - Example: `"bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"`
+  * **Optional** if the client intends to pay with an on-chain Bitcoin payment.
+  * Example: `"bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"`
 
-## Response
+### Response
 
 ```json
 {
@@ -185,7 +176,7 @@ Request:
 }
 ```
 
-## Description
+### Description
 
 When an order is created, the client must already be connected to the LSP. The response contains the parameters provided by the client, which are necessary to open a channel. In the `payment` field, two payment methods are available:
 
@@ -196,20 +187,21 @@ To complete the order and create a channel, the client must connect to the node 
 
 The `channel: null` field indicates that the channel has not yet been created.
 
-### Order Statuses
+#### Order Statuses
 
 An order can have the following statuses:
 
-### Channel Statuses
+#### Channel Statuses
 
-- **Pending**: Order has been created but not yet completed.
-- **Succeeded**: Invoice has been paid, and the channel is created.
-- **Failed**: Channel creation or payment failed.
-- **Expired**: The order or invoice has expired.
+* **Pending**: Order has been created but not yet completed.
+* **Succeeded**: Invoice has been paid, and the channel is created.
+* **Failed**: Channel creation or payment failed.
+* **Expired**: The order or invoice has expired.
 
-# 3 Get Order
+## 3 Get Order
 
-The `get_order` endpoint returns the current status of an order. 
+The `get_order` endpoint returns the current status of an order.
+
 ```
 HTTP GET
 MAINNET: https://lsp.thunderstack.org/get_order?order_id=<order_id>
@@ -217,7 +209,7 @@ TESTNET: https://lsp.test.thunderstack.org/get_order?order_id=<order_id>
 
 ```
 
-## Response
+### Response
 
 ```json
 {
@@ -259,54 +251,47 @@ TESTNET: https://lsp.test.thunderstack.org/get_order?order_id=<order_id>
 }
 ```
 
-### Channel Creation Workflow
+#### Channel Creation Workflow
 
 If the user pays one of the invoices (either `ln` or `ln_asset`), a channel will be created by the LSP. There are several conditions required for a successful order completion:
 
-1. **Payment Success**:  
+1. **Payment Success**:\
    Once the payment is successfully made, the LSP initiates the channel creation process.
-   
-2. **Channel Initialization**:  
+2. **Channel Initialization**:\
    The LSP generates a `temporary_channel_id` and gathers the parameters sent by the client. These parameters are used to call the `/openchannel` API of the LSP node.
-
-3. **Database Update**:  
+3. **Database Update**:\
    The response from the `/openchannel` API is recorded in the database, linking the `order_id` and `temporary_channel_id`. The channel is then marked with the status `PendingOpen`.
-
-4. **Error Handling**:  
+4. **Error Handling**:\
    In the event of an error during the channel creation process, the channel status is set to `FailedOpen`.
 
-### Re-checking Order Status via `get_order`
+#### Re-checking Order Status via `get_order`
 
 When the `get_order` is called again, the following steps occur:
 
-1. **Order Retrieval**:  
+1. **Order Retrieval**:\
    The order details are fetched from the database. The system checks the current status of the order.
-   
-2. **PendingOpen Status**:  
+2. **PendingOpen Status**:\
    If the channel status is `PendingOpen`, the `/getchannelid` API is called on the LSP node using the `temporary_channel_id`. This retrieves the `channel_id`.
-
-3. **Channel Verification**:  
+3. **Channel Verification**:\
    The `/listchannels` API is then called to check whether the created channel exists in the array of open channels using the `channel_id`.
+4. **Channel Found**:
+   * If the channel is found, the status of the channel is updated to `Open`, and the order status is updated to `Success`.
+   * The order information, including the channel details, is returned to the user in the `channel` field.
+5. **Channel Not Found or Errors**:
+   * If the channel is not found or an error occurs, the order status is set to `Failed`, and the channel status is set to `FailedOpen`.
 
-4. **Channel Found**:  
-   - If the channel is found, the status of the channel is updated to `Open`, and the order status is updated to `Success`. 
-   - The order information, including the channel details, is returned to the user in the `channel` field.
-
-5. **Channel Not Found or Errors**:  
-   - If the channel is not found or an error occurs, the order status is set to `Failed`, and the channel status is set to `FailedOpen`.
-
-### Order Already Completed
+#### Order Already Completed
 
 If the channel has already been successfully created at the time of the `get_order` call, the order information along with the channel details is returned in the response.
 
----
+***
 
-### Channel Statuses
+#### Channel Statuses
 
-- **PendingOpen**: The channel is being created but is not yet open.
-- **Open**: The channel has been successfully created.
-- **FailedOpen**: An error occurred during channel creation.
-- **Success**: The order and channel creation process was successful.
-- **Failed**: The order or channel creation failed.
+* **PendingOpen**: The channel is being created but is not yet open.
+* **Open**: The channel has been successfully created.
+* **FailedOpen**: An error occurred during channel creation.
+* **Success**: The order and channel creation process was successful.
+* **Failed**: The order or channel creation failed.
 
----
+***

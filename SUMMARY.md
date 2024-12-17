@@ -4,6 +4,7 @@
 * [📖 General](general/README.md)
   * [Getting Started with ThunderStack RGB Cloud](general/getting-started-with-thunderstack-rgb-cloud/README.md)
     * [Create RLN Node](general/getting-started-with-thunderstack-rgb-cloud/create-rln-node.md)
+    * [Upgrade RLN Node](general/getting-started-with-thunderstack-rgb-cloud/upgrade-rln-node.md)
     * [Connect to RLN Node](general/getting-started-with-thunderstack-rgb-cloud/connect-to-rln-node.md)
     * [Destroy your Node](general/getting-started-with-thunderstack-rgb-cloud/destroy-your-node.md)
     * [Create API Token](general/getting-started-with-thunderstack-rgb-cloud/create-api-token.md)
