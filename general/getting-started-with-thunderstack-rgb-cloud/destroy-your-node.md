@@ -1,4 +1,4 @@
-# Destroy Node
+# Destroy your Node
 
 **Destruction Process**
 
@@ -6,7 +6,7 @@
 
     * To begin the destruction process, navigate to the specific node's page by accessing `/nodes/{nodeId}`.
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 2. **Check Node Status**:
    * Ensure that the node is in a `RUNNING` status. Nodes in this state are eligible for destruction.
 3. **Destroy the Node**:
@@ -15,4 +15,4 @@
 
     * Once the node has been successfully destroyed, the status will update to `DESTROYED`. This confirms that the node has been decommissioned and all associated resources have been properly cleaned up.
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

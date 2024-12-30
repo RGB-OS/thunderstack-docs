@@ -15,4 +15,4 @@ The platform **does NOT store** the token itself for security reasons, only the 
     You can also access the RGB Lightning Node API through the UI. On node page select "Node API Docs" from the sidebar to view the node APIs.\
 
 
-    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>

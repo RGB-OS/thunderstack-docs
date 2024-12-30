@@ -6,7 +6,7 @@
 
     * Navigate to the `/nodes` page on Thunderstack.org. Here, you'll find an overview of your current nodes and the option to create new ones.
 
-    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 2. **Create a New Node**:
    * Click on the "Create Node" button. This action will redirect you to a new page where you can begin the node creation process.
 
@@ -17,7 +17,7 @@
 2. **Submit the Form**:
    *   After entering a name, click the "Create" button to submit the form and start the node creation process.
 
-       <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Step 3: Monitor Node Creation Status**
 

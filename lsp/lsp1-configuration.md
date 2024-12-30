@@ -1,6 +1,4 @@
-# LSP
-
-## ThunderStack LSP1
+# LSP1 Configuration
 
 ## LSP Configuration
 
