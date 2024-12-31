@@ -2,19 +2,19 @@
 icon: gear-complex
 ---
 
-# ThunderCore Engine
+# ThunderEngine
 
 
 
-&#x20;**ThunderCore Engine** -  comprehensive solution for managing Lightning Network nodes and securely storing and synchronizing RGB asset data. ThunderCore Engine offers seamless API integration, non-custodial architecture, and reliable automated node management to streamline your operations.
+&#x20;**ThunderEngine** -  comprehensive solution for managing Lightning Network nodes and securely storing and synchronizing RGB asset data. ThunderEngine offers seamless API integration, non-custodial architecture, and reliable automated node management to streamline your operations.
 
 ***
 
 ### Introduction
 
-#### What is ThunderCore Engine?
+#### What is ThunderEngine?
 
-ThunderCore is a non-custodial Lightning-as-a-Service (LaaS) for businesses, merchants, and Lightning apps. Your users hold their keys, while we take care of everything else. As a developer building with ThunderCore, you can just talk to our simple API, and seamlessly integrate Lightning payments in your application, without having Lightning protocol expertise, or going about a lengthy node setup.
+ThunderEngine is a non-custodial Lightning-as-a-Service (LaaS) for businesses, merchants, and Lightning apps. Your users hold their keys, while we take care of everything else. As a developer building with ThunderCore, you can just talk to our simple API, and seamlessly integrate Lightning payments in your application, without having Lightning protocol expertise, or going about a lengthy node setup.
 
 1. The core two services currently exposed are:
    1. The scheduler which allows users and applications to register new accounts, recover accounts based on the seed secret used to create the account, schedule their node on our infrastructure and look up already scheduled nodes. Scheduling returns a HTTP URI where the node itself can be reached.
@@ -43,5 +43,5 @@ ThunderCore is a non-custodial Lightning-as-a-Service (LaaS) for businesses, mer
 
 #### Request Demo
 
-Visit [Request Demo](https://www.thunderstack.org/request-demo) to learn more about ThunderCore Engine’s capabilities.
+Visit [Request Demo](https://www.thunderstack.org/?demo=true) to learn more about ThunderEngine’s capabilities.
 
