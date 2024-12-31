@@ -1,7 +1,7 @@
 # Table of contents
 
 * [📔 Overview](README.md)
-* [📖 General](general/README.md)
+* [📖 General (ThunderCloud)](general/README.md)
   * [Getting Started with ThunderStack RGB Cloud](general/getting-started-with-thunderstack-rgb-cloud/README.md)
     * [Create RLN Node](general/getting-started-with-thunderstack-rgb-cloud/create-rln-node.md)
     * [Upgrade RLN Node](general/getting-started-with-thunderstack-rgb-cloud/upgrade-rln-node.md)

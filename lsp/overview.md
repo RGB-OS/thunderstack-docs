@@ -59,15 +59,15 @@ RGB assets require tailored liquidity solutions to operate seamlessly within the
 2. **Request Liquidity:** Send a request specifying the amount, asset type, client node publick key, and channel duration.
    1.
 
-       <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 3. **Confirm Payment:** Pay using BTC or RGB assets.
    1.
 
-       <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 4. **Channel Opening:** The channel will be provisioned and monitored in real time.
    1.
 
-       <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
