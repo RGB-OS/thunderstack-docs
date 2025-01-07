@@ -10,7 +10,7 @@ Follow these detailed steps to establish a secure connection to your node at Thu
 
     * URL: `https://www.thunderstack.org/{nodeId}/connect`
 
-    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 2. **View Connection Details**: On the connect page, you will find the unique endpoint URL for your node, along with the private key and certificate required for the mTLS connection. These credentials are automatically generated for your session and are essential for establishing a secure connection.
 
 **Step 2: Obtain Connection Credentials and URL**
@@ -20,14 +20,14 @@ Follow these detailed steps to establish a secure connection to your node at Thu
    * **Certificate**: A `.pem` file (e.g., `certificate.pem`) containing your public key certificate.
 2. **Copy Endpoint URL**: The page will display the unique endpoint URL formatted as follows: `https://{userId}.thunderstack.org/nodes/{userId}/{nodeId}/`.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 **Step 3: Prepare the Request**
 
 1. **Save the Downloaded Files**: Ensure that the private key and certificate files are saved in a secure location on your computer. You will need to reference these files when making the request.
 2. **Example Request**: An example curl command will be shown on the `/connect` page. This serves as a template for how you should structure your request. Modify the example by replacing the placeholders with the actual paths to your saved key and certificate files.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 #### Connecting to  Node with API token
 

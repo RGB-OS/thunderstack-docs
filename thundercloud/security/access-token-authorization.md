@@ -9,6 +9,6 @@ The platform **does NOT store** the token itself for security reasons, only the 
 \
 For more information, see:
 
-1. [**Creating an API Token**](../general/getting-started-with-thunderstack-rgb-cloud/create-api-token.md)
-2. [**Thunderstrack  API**](../developer-api/thunderstack-api.md)
-3. [**RGB Lightning Node API**](../developer-api/rgb-lightning-node-api.md)
+1. [**Creating an API Token**](broken-reference)
+2. [**Thunderstrack  API**](broken-reference)
+3. [**RGB Lightning Node API**](broken-reference)

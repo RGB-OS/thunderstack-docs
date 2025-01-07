@@ -4,7 +4,7 @@ description: >-
   ensuring a consistent and scalable approach across the node lifecycle.
 ---
 
-# Technical Architecture of RGB Lightning Node Deployment
+# Technical Architecture of RGB Lightning Node (RLN) Deployment
 
 #### AWS Services and Setup for RGB Lightning Node Deployment
 

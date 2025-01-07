@@ -1,4 +1,4 @@
-# LSP1 Configuration
+# ⚙️ LSP1 Configuration
 
 ## LSP Configuration
 

@@ -4,7 +4,7 @@ description: >-
   RGB Lightning Network nodes.
 ---
 
-# 📔 Overview
+# 🌩️ What is ThunderStack?
 
 ## &#x20;ThunderStack Layered Architecture
 

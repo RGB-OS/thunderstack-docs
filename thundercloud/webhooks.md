@@ -3,6 +3,7 @@ description: >-
   The ThunderStack Platform supports webhooks to notify users about events in
   their nodes. This document will explain how to use ThunderStack webhooks as
   well as provide example payloads.
+icon: webhook
 ---
 
 # Webhooks

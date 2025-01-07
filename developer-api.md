@@ -5,14 +5,11 @@ The platform **does NOT store** the token itself for security reasons, only the 
 
 **Access Token Utilization for API Authorization:** Users can employ the access tokens generated on the platform to authorize interactions with two distinct types of APIs available.\
 &#x20;\
-`Authorization: Bearer {accessToken}` - This authorization header ensures that the API requests are securely authenticated. Follow this [article](../general/getting-started-with-thunderstack-rgb-cloud/create-api-token.md) to create `accessToken`
+`Authorization: Bearer {accessToken}` - This authorization header ensures that the API requests are securely authenticated. Follow this [article](broken-reference) to create `accessToken`
 
 1. **ThunderStack  API:**\
    [**https://cloud.thunderstack.org/docs**](https://cloud.thunderstack.org/docs)
-2.  **RGB Lightning Node API**\
-    [**https://cloud.thunderstack.org/rgb-docs**](https://cloud.thunderstack.org/rgb-docs)\
-    \
-    You can also access the RGB Lightning Node API through the UI. On node page select "Node API Docs" from the sidebar to view the node APIs.\
-
-
-    <figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+2. **RGB Lightning Node API**\
+   [**https://cloud.thunderstack.org/rgb-docs**](https://cloud.thunderstack.org/rgb-docs)\
+   \
+   You can also access the RGB Lightning Node API through the UI. On node page select "Node API Docs" from the sidebar to view the node APIs.\
