@@ -1,21 +1,19 @@
 # FAQ
 
-#### Frequently Asked Questions
+Frequently Asked Questions
 
-**1. What is ThunderSafe, and how does it work?**
+**1. Do I retain full control over my node?**
 
-ThunderSafe is a secure, trustless backup and recovery solution powered by a VSS server. It allows developers to store Lightning Network data and RGB asset stash securely, ensuring data availability and recovery. With client-side encryption, data is encrypted using the user's seed phrase before being stored, guaranteeing privacy and security.
+Yes, ThunderEngine ensures a non-custodial setup, giving you complete control over your RGB Lightning Node.
 
-**2. What types of data can ThunderSafe store?**
+**2. What information can I retrieve about my node?**
 
-* **Lightning Network Channel States:** Ensures seamless operation and recovery.
-* **RGB Asset Stashes on Lightning:** Supports efficient token transactions.
-* **RGB Asset Stashes on Bitcoin or Liquid Networks:** Broad use case coverage across protocols.
+You can access details such as your node's address, status, version, active channels, and balances.
 
-**3. How does ThunderSafe ensure data security and trustlessness?**
+**3. Can I start my node only when needed?**
 
-ThunderSafe uses client-side encryption, meaning your data is encrypted locally on your device using your seed phrase before being sent to the VSS server. This ensures that even ThunderSafe cannot access your data, maintaining trustlessness. The VSS server ensures data versioning and atomic updates for reliable storage and retrieval.
+Yes, you can activate your node anytime to process payments, accept transfers, or generate invoices on demand.
 
-**4. Why is ThunderSafe ideal for developers using the RGB protocol?**
+**4. Is ThunderEngine suitable for high-demand scenarios?**
 
-ThunderSafe simplifies the development process by providing a secure and efficient storage solution for RGB assets and Lightning data. It ensures data availability and recovery across multiple protocols (Lightning, Bitcoin, and Liquid), enabling developers to focus on building robust RGB-based applications without worrying about complex storage implementations.
+Absolutely. ThunderEngine is designed for scalable performance, making it ideal for handling intensive payment and transfer activities.
