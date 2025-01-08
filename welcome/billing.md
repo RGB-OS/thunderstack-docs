@@ -25,7 +25,7 @@ PLANS
   * Chat Support
   * Personal Onboarding
 
-#### Scale
+#### Scale (or Wallet plan)
 
 * **Price:** Contact us
 * **Includes:**
@@ -35,10 +35,4 @@ PLANS
   * Host any additional RGB/Bitcoin software
   * Ticket Support
   * Chat Support
-  * Personal Onboarding
-
-
-
-
-
-\
+  * Personal Onboarding\

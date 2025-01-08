@@ -1,4 +1,4 @@
-# ⚙️ RGB Lightning Node API
+# ⚙️ Copy of RGB Lightning Node API
 
 **RGB Lightning Node API**\
 

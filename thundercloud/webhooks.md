@@ -1,50 +1,70 @@
 ---
-description: >-
-  The ThunderStack Platform supports webhooks to notify users about events in
-  their nodes. This document will explain how to use ThunderStack webhooks as
-  well as provide example payloads.
 icon: webhook
+description: >-
+  The ThunderStack Cloud supports webhooks to notify users about events in their
+  nodes. This document explains how to use ThunderStack webhooks and provides
+  example payloads.
 ---
 
 # Webhooks
 
-#### Adding a Webhook Endpoint
+#### **Adding a Webhook Endpoint**
 
-You can add a webhook endpoint to your node by editing the node's settings. First, navigate to your node and click **Settings**. Once your settings are expanded, there is a field named **Webhook URL**. Fill in this field with the endpoint that you'd like ThunderStack to make requests to. While you're in the settings, make sure to note down your public key, as it will be used to verify the requests.
+You can add a webhook endpoint to your node by editing the node's settings:
 
-**Adding a Webhook When Creating a Node:**
+1. Navigate to your node and click **Settings**.
+2. Locate the field named **Webhook URL**.
+3. Enter the endpoint where you'd like ThunderStack to send requests.
+4. Note down your public key from the settings, as it will be used to verify requests.
 
-When creating a new node through API, you can  provide a **Webhook URL in settings** . Enter the endpoint where you would like ThunderStack to send webhook notifications. You can update this URL later through the node's settings if needed.
+***
 
-**URL to Retrieve Public Key**\
-`https://cloud-api.thunderstack.org/api/webhook-public-key`
+#### **Adding a Webhook When Creating a Node**
 
-This public key will be used to validate incoming requests from ThunderStack by verifying the `X-ThunderStack-Signature` header included in each webhook event.
+When creating a new node via the API, you can provide a **Webhook URL** in the settings. This allows ThunderStack to send webhook notifications to your specified endpoint. You can update this URL later through the node's settings if needed.
 
-#### How it Works
+***
 
-When an event is triggered, ThunderStack will make a `POST` request to your webhook endpoint. This request will include a JSON payload with details about the event. Additionally, the request will contain a header named `X-ThunderStack-Signature`, which includes a digital signature created with our private key. When receiving the webhook event, you should verify the `X-ThunderStack-Signature` header using the public key.
+#### **Retrieve the Public Key**
 
-\
-You should always validate the `X-ThunderStack-Signature` header and the JSON payload. This ensures the request was made from ThunderStack and is associated with the expected node or endpoint.
+To verify webhook requests, retrieve the public key from the following URL:\
+[https://cloud-api.thunderstack.org/api/webhook-public-key](https://cloud-api.thunderstack.org/api/webhook-public-key)
 
-#### Payload Schema
+This public key is used to validate the `X-ThunderStack-Signature` header included in each webhook event.
 
-The JSON payload sent to your webhook endpoint will have the following structure:
+***
+
+#### **How Webhooks Work**
+
+When an event is triggered, ThunderStack sends a **POST** request to your webhook endpoint. The request includes:
+
+1. A **JSON payload** with details about the event.
+2. A header named `X-ThunderStack-Signature` containing a digital signature created with ThunderStack's private key.
+
+**Verification Steps**
+
+1. **Validate the Signature**: Use the public key to verify the `X-ThunderStack-Signature` header.
+2. **Validate the Payload**: Ensure the `nodeId` in the payload matches the expected node or endpoint.
+
+***
+
+#### **Payload Schema**
+
+The JSON payload sent to your webhook endpoint has the following structure:
 
 ```json
-{
-  "eventType": "NODE_STATUS_UPDATED", // Indicates the type of event
-  "eventTimestamp": "2024-11-06T12:00:00Z", // ISO 8601 format timestamp
+jsonCopy code{
+  "eventType": "NODE_STATUS_UPDATED", 
+  "eventTimestamp": "2024-11-06T12:00:00Z", 
   "details": {
-    "nodeId": "your-node-id", // Unique identifier for the node
-    "status": "RUNNING" // Current status of the node (one of the predefined statuses)
+    "nodeId": "your-node-id",
+    "status": "RUNNING"
   },
-  "nodeId": "your-node-id" // Unique identifier for the node
+  "nodeId": "your-node-id"
 }
 ```
 
-#### Status Values
+**Status Values**
 
 The `status` field within `details` can have one of the following values:
 
@@ -54,46 +74,54 @@ The `status` field within `details` can have one of the following values:
 * **FAILED**: The node has failed.
 * **IN\_PROGRESS**: An operation is currently in progress.
 
-#### Security Considerations
+***
 
-* **HTTPS**: Always use HTTPS for your webhook endpoint to ensure data security during transit.
-* **Signature Verification**: Validate the `X-ThunderStack-Signature` header using the public key.
-* **API Validation**: Check the `nodeId` field to ensure it matches the expected node.
+#### **Security Considerations**
 
-This approach ensures secure, reliable, and real-time notifications for your nodes using the ThunderStack webhook system.
+1. **Use HTTPS**: Always use HTTPS for your webhook endpoint to ensure data security during transit.
+2. **Signature Verification**: Validate the `X-ThunderStack-Signature` header using the public key.
+3. **Payload Validation**: Ensure the `nodeId` field matches the expected node.
 
-**Example Webhook Handler**
+This ensures secure, reliable, and real-time notifications for your nodes.
+
+***
+
+#### **Example Webhook Handler**
+
+Here’s an example of a webhook handler in JavaScript/TypeScript:
 
 ```javascript
-import * as crypto from 'crypto';
+javascriptCopy codeimport * as crypto from 'crypto';
 
 // Main function to handle webhook events
-export async function handleWebhookEvent(request: Request): Promise<any> {
-        // Extract the signature and body
-        const receivedSignature = request.headers?.['x-thunderstack-signature'] || request.headers?.['X-ThunderStack-Signature'];
-        const body = typeof request.body === 'string' ? request.body : JSON.stringify(request.body);
+export async function handleWebhookEvent(request) {
+    // Extract the signature and body
+    const receivedSignature = request.headers['x-thunderstack-signature'] || request.headers['X-ThunderStack-Signature'];
+    const body = typeof request.body === 'string' ? request.body : JSON.stringify(request.body);
 
-        // Retrieve the public key for signature verification
-        const publicKey = 'YOUR_PUBLIC_KEY_HERE'
+    // Retrieve the public key for signature verification
+    const publicKey = 'YOUR_PUBLIC_KEY_HERE';
 
-        // Create a verifier to validate the signature using the public key
-        const verify = crypto.createVerify('RSA-SHA256');
-        verify.update(body);
-        verify.end();
+    // Create a verifier to validate the signature using the public key
+    const verify = crypto.createVerify('RSA-SHA256');
+    verify.update(body);
+    verify.end();
 
-        // Validate the signature
-        const isValid = verify.verify(publicKey, receivedSignature, 'base64');
-        if (!isValid) {
-            console.error('Invalid signature');
-            // Example Handle Invalid Signature Error
-             return {
-                statusCode: 403,
-                body: JSON.stringify({ message: 'Forbidden - Invalid Signature' })
-            };
-             
-        }
-        // Handle the validated webhook event here 
+    // Validate the signature
+    const isValid = verify.verify(publicKey, receivedSignature, 'base64');
+    if (!isValid) {
+        console.error('Invalid signature');
+        return {
+            statusCode: 403,
+            body: JSON.stringify({ message: 'Forbidden - Invalid Signature' })
+        };
+    }
+
+    // Handle the validated webhook event here
+    console.log('Valid webhook event received');
+    return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Webhook event processed successfully' })
+    };
 }
-
-
 ```
