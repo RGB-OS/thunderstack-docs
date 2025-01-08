@@ -10,10 +10,13 @@
 ## ThunderCloud
 
 * [📚 General](thundercloud/getting-started-with-thunderstack-rgb-cloud/README.md)
-  * [🏗️ Create RLN Node](thundercloud/getting-started-with-thunderstack-rgb-cloud/create-rln-node.md)
+  * [🏗️ Create RLN Node](thundercloud/getting-started-with-thunderstack-rgb-cloud/create-rln-node/README.md)
+    * [Node UI Actions](thundercloud/getting-started-with-thunderstack-rgb-cloud/create-rln-node/node-actions.md)
+    * [RGB Lightning Node (RLN) Deployment](thundercloud/getting-started-with-thunderstack-rgb-cloud/create-rln-node/technical-architecture-of-rgb-lightning-node-rln-deployment.md)
   * [Upgrade RLN Node](thundercloud/getting-started-with-thunderstack-rgb-cloud/upgrade-rln-node.md)
   * [Connect to RLN Node](thundercloud/getting-started-with-thunderstack-rgb-cloud/connect-to-rln-node.md)
   * [Destroy your Node](thundercloud/getting-started-with-thunderstack-rgb-cloud/destroy-your-node.md)
+  * [Node Backup/Restore](thundercloud/getting-started-with-thunderstack-rgb-cloud/node-backup-restore.md)
 * [🔒 Security](thundercloud/security/README.md)
   * [Cognito Authorization](thundercloud/security/cognito-authorization.md)
   * [mTLS Authorization](thundercloud/security/mtls-authorization/README.md)
@@ -24,15 +27,9 @@
 ## ThunderEngine
 
 * [📙 General](thunderengine/general.md)
-* [Create API Token](thunderengine/create-api-token.md)
-* [🛠️ ThunderStack API](thunderengine/thunderstack-api.md)
-* [Access Token Authorization](thunderengine/access-token-authorization.md)
-* [⚡ Copy of RGB Lightning Node (RLN)](thunderengine/rgb-lightning-node-rln/README.md)
-  * [Technical Architecture of RGB Lightning Node (RLN) Deployment](thunderengine/rgb-lightning-node-rln/technical-architecture-of-rgb-lightning-node-rln-deployment.md)
-  * [Node Actions](thunderengine/rgb-lightning-node-rln/node-actions.md)
-  * [Node Backup/Restore](thunderengine/rgb-lightning-node-rln/node-backup-restore.md)
-* [⚙️ Copy of RGB Lightning Node API](thunderengine/rgb-lightning-node-api.md)
-* [⚙️ Developer API](thunderengine/developer-api.md)
+* [🛠️ ThunderEngine API](thunderengine/thunderstack-api.md)
+* [Access Token Authorization](thunderengine/access-token-authorization/README.md)
+  * [Create API Token](thunderengine/access-token-authorization/create-api-token.md)
 
 ## ThunderFlow (LSP)
 

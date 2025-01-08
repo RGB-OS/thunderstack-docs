@@ -1,9 +1,6 @@
-# 🛠️ ThunderStack API
-
-**ThunderStack  API:**\
+# 🛠️ ThunderEngine API
 
 
-[**https://cloud.thunderstack.org/docs**](https://cloud.thunderstack.org/docs)
 
 {% swagger src="../.gitbook/assets/openapi (3).yaml" path="/api/nodes" method="get" %}
 [openapi (3).yaml](<../.gitbook/assets/openapi (3).yaml>)

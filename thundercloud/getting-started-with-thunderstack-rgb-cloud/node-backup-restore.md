@@ -1,3 +1,7 @@
+---
+icon: lock-keyhole
+---
+
 # Node Backup/Restore
 
 **Backup Creation**
