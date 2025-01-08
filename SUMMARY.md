@@ -34,7 +34,10 @@
 ## ThunderFlow (LSP)
 
 * [📗 General](thunderflow-lsp/general.md)
-* [⚙️ LSP1 Configuration](thunderflow-lsp/lsp1-configuration.md)
+* [▶️ Getting Started](thunderflow-lsp/getting-started.md)
+* [Pricing](thunderflow-lsp/pricing.md)
+* [⚙️ RGB LSPS1 APIs](thunderflow-lsp/rgb-lsps1-apis/README.md)
+  * [RGB LSP Configuration](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-configuration.md)
 
 ## ThunderSafe
 
