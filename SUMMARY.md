@@ -28,19 +28,19 @@
 
 * [📙 General](thunderengine/general.md)
 * [🛠️ ThunderEngine API](thunderengine/thunderstack-api.md)
-* [Access Token Authorization](thunderengine/access-token-authorization/README.md)
-  * [Create API Token](thunderengine/access-token-authorization/create-api-token.md)
+* [🏗️ Access Token Authorization](thunderengine/access-token-authorization/README.md)
+  * [🔰 Create API Token](thunderengine/access-token-authorization/create-api-token.md)
 
 ## ThunderFlow (LSP)
 
 * [📗 General](thunderflow-lsp/general.md)
 * [▶️ Getting Started](thunderflow-lsp/getting-started.md)
-* [Pricing](thunderflow-lsp/pricing.md)
+* [💳 Pricing](thunderflow-lsp/pricing.md)
 * [⚙️ RGB LSPS1 APIs](thunderflow-lsp/rgb-lsps1-apis/README.md)
   * [RGB LSP Configuration](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-configuration.md)
 
 ## ThunderSafe
 
-* [General](thundersafe/general.md)
+* [📗 General](thundersafe/general.md)
 * [⚒️ Features](thundersafe/features.md)
 * [▶️ Getting Started](thundersafe/getting-started.md)
