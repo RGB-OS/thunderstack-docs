@@ -2,7 +2,7 @@
 icon: shield
 ---
 
-# ThunderSafe
+# General
 
 **ThunderSafe**, a secure, trustless backup and recovery solution designed for Lightning Network and RGB assets. ThunderSafe provides encrypted cloud backups, multi-device synchronization, and seamless recovery, ensuring your funds and data remain safe and accessible at all times.
 
@@ -34,9 +34,6 @@ ThunderSafe offers server-side cloud storage solutions specifically tailored for
 
 **Multi-device** Access: VSS enables multiple devices with the same wallet app to securely access and share LN state. This seamless switching between devices ensures consistent access to funds for users.
 
-\
-
-
 #### Key Features
 
 1. **Encrypted Cloud Backups**
@@ -47,33 +44,3 @@ ThunderSafe offers server-side cloud storage solutions specifically tailored for
    * Quickly restore wallet data on a new device, keeping your funds and transaction history intact.
 4. **Privacy by Design**
    * ThunderSafe ensures non-custodial control, so only you have access to your keys and data.
-
-***
-
-### Getting Started
-
-#### Steps to Use ThunderSafe
-
-**1. Cloud Backups**
-
-Automatically encrypt and save your wallet's RGB state and transaction data in the cloud for easy recovery.
-
-<figure><img src="../.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
-
-**2. Multi-Device Synchronization**
-
-Seamlessly synchronize your wallet data across multiple devices, ensuring consistent access to your funds.
-
-<figure><img src="../.gitbook/assets/02.png" alt=""><figcaption></figcaption></figure>
-
-**3. Secure Recovery**
-
-Easily restore your wallet and its data in case of device loss or replacement.
-
-<figure><img src="../.gitbook/assets/03.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-#### Request Demo
-
-Visit [Request Demo](https://www.thunderstack.org/?demo=true) to learn more about ThunderSafe’s capabilities.

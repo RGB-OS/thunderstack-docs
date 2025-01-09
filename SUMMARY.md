@@ -41,4 +41,6 @@
 
 ## ThunderSafe
 
-* [ThunderSafe](thundersafe/thundersafe.md)
+* [General](thundersafe/general.md)
+* [⚒️ Features](thundersafe/features.md)
+* [▶️ Getting Started](thundersafe/getting-started.md)
