@@ -2,7 +2,7 @@
 icon: gear-code
 ---
 
-# Access Token Authorization
+# 🏗️ Access Token Authorization
 
 #### **Access Token Usage for API Authentication**
 
@@ -17,7 +17,7 @@ For security reasons, the platform **does not store the token itself**. Instead,
 Access tokens can be used to authorize interactions with the platform’s APIs in a secure and streamlined manner. The following header must be included in API requests to authenticate them:
 
 ```css
-cssCopy codeAuthorization: Bearer {accessToken}
+Authorization: Bearer {accessToken}
 ```
 
 This ensures that:
