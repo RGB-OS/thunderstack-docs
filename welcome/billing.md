@@ -35,7 +35,9 @@ description: >-
 
 #### **Scale (Wallet Plan)**
 
-* **Price**: Contact us for pricing
+* **Price**: Usage-Based Pricing
+  * **Running Node:** **$10 per node per 24 hours**
+  * **Paused Node:** **$3 per node per 24 hours**
 * **Includes**:
   * **Unlimited Compute Credits**
   * **Unlimited API Calls**
