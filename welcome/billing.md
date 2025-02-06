@@ -36,8 +36,8 @@ description: >-
 #### **Scale (Wallet Plan)**
 
 * **Price**: Usage-Based Pricing
-  * **Running RLN:** **$10 per node per 24 hours**
-  * **Paused RLN:** **$3 per node per 24 hours**
+  * **Running RLN:** **$15 per node per month (30 days)**
+  * **Paused RLN:** **$5 per node per month (30 days)**
 * **Includes**:
   * **Unlimited Compute Credits**
   * **Unlimited API Calls**
