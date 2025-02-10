@@ -16,9 +16,7 @@ The VSS API Client is a Node.js utility designed to interact with a Versioned St
 
 ***
 
-### **Getting Started**
-
-#### **Prerequisites**
+### Prerequisites
 
 1. **VSS Server**: Access to a running VSS server instance. \
    [https://safe.thunderstack.org/vss](https://safe.thunderstack.org/vss)
