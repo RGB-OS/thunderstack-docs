@@ -35,7 +35,11 @@ ThunderLink includes a **ready-to-use checkout page** that can be:
 
 ### **Free for Integrators**
 
-* 🆓 **No upfront cost** – Developers can integrate ThunderLink **at zero cost**.
+* 🆓 **No upfront cost** – Developers can integrate ThunderLink **at zero cost** on top of existing ThunderCloud and ThunderFlow pricing.&#x20;
 * 🆓 **No maintenance fees** – Focus on building without additional expenses.
+
+
+
+
 
 ###
