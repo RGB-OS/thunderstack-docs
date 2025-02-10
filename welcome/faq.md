@@ -1,6 +1,0 @@
-# ❓ FAQ
-
-#### Frequently Asked Questions
-
-
-

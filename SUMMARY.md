@@ -5,7 +5,6 @@
 * [🌩️ What is ThunderStack?](README.md)
 * [💳 Billing](welcome/billing.md)
 * [😎 Support](welcome/support.md)
-* [❓ FAQ](welcome/faq.md)
 
 ## ThunderCloud
 
@@ -44,3 +43,9 @@
 * [📗 General](thundersafe/general.md)
 * [⚒️ Features](thundersafe/features.md)
 * [▶️ Getting Started](thundersafe/getting-started.md)
+
+## ThunderLink
+
+* [📗 General](thunderlink/general.md)
+* [⚒️ Features](thunderlink/features.md)
+* [▶️ Getting Started](thunderlink/getting-started.md)
