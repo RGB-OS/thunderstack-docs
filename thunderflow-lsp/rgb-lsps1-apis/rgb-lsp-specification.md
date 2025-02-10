@@ -2,7 +2,7 @@
 icon: screwdriver-wrench
 ---
 
-# &#x20;RGB LSP Specificatio
+# RGB LSP Specification
 
 API specifications for RGB Lightning Service Providers (LSP)
 

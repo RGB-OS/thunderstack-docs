@@ -37,7 +37,7 @@
 * [💳 Pricing](thunderflow-lsp/pricing.md)
 * [⚙️ RGB LSPS1 APIs](thunderflow-lsp/rgb-lsps1-apis/README.md)
   * [RGB LSP Configuration](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-configuration.md)
-  * [ RGB LSP Specificatio](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-specificatio.md)
+  * [RGB LSP Specification](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-specification.md)
 
 ## ThunderSafe
 
