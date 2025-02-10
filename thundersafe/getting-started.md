@@ -19,7 +19,7 @@ The VSS API Client is a Node.js utility designed to interact with a Versioned St
 ### Prerequisites
 
 1. **VSS Server**: Access to a running VSS server instance. \
-   [https://safe.thunderstack.org/vss](https://safe.thunderstack.org/vss)
+   [`https://safe.thunderstack.org/vss`](https://safe.thunderstack.org/vss)
 2. **Protobuf Schema**: Obtain the `vss.proto` file from the VSS service provider.
 
 ***
@@ -39,7 +39,7 @@ The VSS API Client is a Node.js utility designed to interact with a Versioned St
     ```
 3. Configure the client:
    * Update `config.js` with:
-     * **`token`**: JWT token for authentication.
+     * **`token`**: [JWT token](../thunderengine/access-token-authorization/create-api-token.md) for authentication.
      * **`vssServerBaseUrl`**: Base URL for the VSS server.
      * **`ENCRYPTION_KEY`**: 32-byte AES encryption key in Base64 format.
 
