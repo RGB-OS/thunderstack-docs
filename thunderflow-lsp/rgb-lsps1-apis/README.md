@@ -124,22 +124,24 @@ Request:
     "public_key": "02c9d1afd383fb651d93975d2a2e727aca5e6dd4fa2f090fded50102a149969ce8@3dc0a5a72c2748e0bcd3b6c8fea9db9c.80c65b6183a949d1a642f5dd64a4f5e9.peers.thunderstack.org:12187",
     "payment": {
         "ln": {
-            "_id": "66e42dbb6afb292692ade4e8",
-            "order_id": "66e42dba6afb292692ade4e7",
+            "order_id": "67ab289d69711ad1f44aa8e6",
             "type": "ln",
             "status": "Pending",
-            "invoice": "lnbcrt30u1pnwgtdmdqud3jxktt5w46x7unfv9kz6mn0v3jsnp4qvd7n6j75epvkwuhd34pctjcuj8c7p9rwk9dvmf4arnf7yzw06frkpp5s5q29jg35554eqqkhsv49j43k5w4xq8j4hqajhql609kfaq6e9vssp5kqa2jkfat4ztt4t99h7sp00u8wkcses6hs8v83vy38huye6unxgs9qyysgqcqpcxqrrss3zdjyxx54th9mza0mttqrfry4ryprtzfl5947aqr4ghgrejsn66ycczxku22schn8un2tl2028x6p3wjrck5n0p5dvkzzvjhe0wyw0sphnrms6",
-            "created_at": "2024-09-13T12:19:07.436Z",
-            "updated_at": "2024-09-13T12:20:11.633Z"
+            "fee": 251515,
+            "invoice": "lnbcrt2515150n1pn6k2y7dqud3jxktt5w46x7unfv9kz6mn0v3jsnp4qdh55vg4n3pgt2a635zue44w2tzl00ast96ks3jelxkq873zl3ljcpp5ft2zj96v64tya0c08evjq5dg5jxkkfwy4m5mnrg7p4j4tjk0znxssp530hy83x7gr6ldrawk0xe3rphz0uc9v7x8cpfequgnuq493t57uuq9qyysgqcqpcxqrpcgwnwlpmaq2lm24mjsef5sqtycpydl543a00jw2sthjtwgzdshfeunjs20uuj356ks6lhzrutcjyu9x6q38d244aafwpvxqc34jawxyzspxxn6zw",
+            "updated_at": "2025-02-11T10:38:22.138Z",
+            "created_at": "2025-02-11T10:38:22.138Z",
+            "expires_at": "2025-02-11T11:08:22.138Z"
         },
-        "ln_asset": {
-            "_id": "66e42dc06afb292692ade4e9",
-            "order_id": "66e42dba6afb292692ade4e7",
-            "type": "ln_asset",
+        "btc_onchain": {
+            "order_id": "67ab289d69711ad1f44aa8e6",
+            "type": "btc_onchain",
             "status": "Pending",
-            "invoice": "lnbcrt30u1pnwgtwqdqud3jxktt5w46x7unfv9kz6mn0v3jsnp4qvd7n6j75epvkwuhd34pctjcuj8c7p9rwk9dvmf4arnf7yzw06frkpp5dexj8uzy6cemvvacytrjhp5gyud9rczk0s9l40472mvpagnkj5rqsp59drpy7vwvghruhhl7uzyxqp9cnut96kfx794v86ml74eqh57f72q9qyysgqcqpcxqrrsslzlwfnkyw3jffgx6ajswvkk5snrwff85dt52sk42uf58pz8wnpktqkkz56wv3fx23ny2ukkukfndaqkvdp50yk5u3jw2agnyms7qp5au77fygkewywuum6nhalwux2dmd08kuuraqgl7l5203da35r506yh4t9atzjrgz8sglq53h0fwkgxxlcrjx48ujhj4n9mdy23p4p2fqqwrvhat",
-            "created_at": "2024-09-13T12:19:12.162Z",
-            "updated_at": "2024-09-13T12:20:18.149Z"
+            "fee": 251515,
+            "invoice": "bitcoin:bcrt1q36xg65c3wdj969f92f2wd0za30z3lzq0envx88?amount=0.00251515&label=67ab289d69711ad1f44aa8e6&message=Payment%20for%20order%3A%2067ab289d69711ad1f44aa8e6",
+            "updated_at": "2025-02-11T10:38:22.390Z",
+            "created_at": "2025-02-11T10:38:22.390Z",
+            "expires_at": "2025-02-11T11:38:22.390Z"
         }
     },
     "channel": null
@@ -151,7 +153,7 @@ Request:
 When an order is created, the client must already be connected to the LSP. The response contains the parameters provided by the client, which are necessary to open a channel. In the `payment` field, two payment methods are available:
 
 1. **`ln`** – an invoice for payment in satoshis.
-2. **`ln_asset`** – an invoice for payment in assets.
+2. **btc\_onchain** – an onchain invoice for payment in satoshis.
 
 To complete the order and create a channel, the client must connect to the node and pay the invoice. Once the invoice is paid, the channel with the requested liquidity will be created.
 
@@ -193,22 +195,24 @@ TESTNET: https://lsp.test.thunderstack.org/get_order?order_id=<order_id>
     "public_key": "02c9d1afd383fb651d93975d2a2e727aca5e6dd4fa2f090fded50102a149969ce8@3dc0a5a72c2748e0bcd3b6c8fea9db9c.80c65b6183a949d1a642f5dd64a4f5e9.peers.thunderstack.org:12187",
     "payment": {
         "ln": {
-            "_id": "66e42dbb6afb292692ade4e8",
-            "order_id": "66e42dba6afb292692ade4e7",
+            "order_id": "67ab289d69711ad1f44aa8e6",
             "type": "ln",
-            "status": "Succeeded",
-            "invoice": "lnbcrt30u1pnwgtdmdqud3jxktt5w46x7unfv9kz6mn0v3jsnp4qvd7n6j75epvkwuhd34pctjcuj8c7p9rwk9dvmf4arnf7yzw06frkpp5s5q29jg35554eqqkhsv49j43k5w4xq8j4hqajhql609kfaq6e9vssp5kqa2jkfat4ztt4t99h7sp00u8wkcses6hs8v83vy38huye6unxgs9qyysgqcqpcxqrrss3zdjyxx54th9mza0mttqrfry4ryprtzfl5947aqr4ghgrejsn66ycczxku22schn8un2tl2028x6p3wjrck5n0p5dvkzzvjhe0wyw0sphnrms6",
-            "created_at": "2024-09-13T12:19:07.436Z",
-            "updated_at": "2024-09-13T12:20:11.633Z"
+            "status": "Pending",
+            "fee": 251515,
+            "invoice": "lnbcrt2515150n1pn6k2y7dqud3jxktt5w46x7unfv9kz6mn0v3jsnp4qdh55vg4n3pgt2a635zue44w2tzl00ast96ks3jelxkq873zl3ljcpp5ft2zj96v64tya0c08evjq5dg5jxkkfwy4m5mnrg7p4j4tjk0znxssp530hy83x7gr6ldrawk0xe3rphz0uc9v7x8cpfequgnuq493t57uuq9qyysgqcqpcxqrpcgwnwlpmaq2lm24mjsef5sqtycpydl543a00jw2sthjtwgzdshfeunjs20uuj356ks6lhzrutcjyu9x6q38d244aafwpvxqc34jawxyzspxxn6zw",
+            "updated_at": "2025-02-11T10:38:22.138Z",
+            "created_at": "2025-02-11T10:38:22.138Z",
+            "expires_at": "2025-02-11T11:08:22.138Z"
         },
-        "ln_asset": {
-            "_id": "66e42dc06afb292692ade4e9",
-            "order_id": "66e42dba6afb292692ade4e7",
-            "type": "ln_asset",
-            "status": "Expired",
-            "invoice": "lnbcrt30u1pnwgtwqdqud3jxktt5w46x7unfv9kz6mn0v3jsnp4qvd7n6j75epvkwuhd34pctjcuj8c7p9rwk9dvmf4arnf7yzw06frkpp5dexj8uzy6cemvvacytrjhp5gyud9rczk0s9l40472mvpagnkj5rqsp59drpy7vwvghruhhl7uzyxqp9cnut96kfx794v86ml74eqh57f72q9qyysgqcqpcxqrrsslzlwfnkyw3jffgx6ajswvkk5snrwff85dt52sk42uf58pz8wnpktqkkz56wv3fx23ny2ukkukfndaqkvdp50yk5u3jw2agnyms7qp5au77fygkewywuum6nhalwux2dmd08kuuraqgl7l5203da35r506yh4t9atzjrgz8sglq53h0fwkgxxlcrjx48ujhj4n9mdy23p4p2fqqwrvhat",
-            "created_at": "2024-09-13T12:19:12.162Z",
-            "updated_at": "2024-09-13T12:20:18.149Z"
+        "btc_onchain": {
+            "order_id": "67ab289d69711ad1f44aa8e6",
+            "type": "btc_onchain",
+            "status": "Pending",
+            "fee": 251515,
+            "invoice": "bitcoin:bcrt1q36xg65c3wdj969f92f2wd0za30z3lzq0envx88?amount=0.00251515&label=67ab289d69711ad1f44aa8e6&message=Payment%20for%20order%3A%2067ab289d69711ad1f44aa8e6",
+            "updated_at": "2025-02-11T10:38:22.390Z",
+            "created_at": "2025-02-11T10:38:22.390Z",
+            "expires_at": "2025-02-11T11:38:22.390Z"
         }
     },
     "channel": {
