@@ -2,7 +2,9 @@
 
 ## VSS API Client
 
-The VSS API Client is a Node.js utility designed to interact with a Versioned Storage Service (VSS). It provides functionality to securely store, retrieve, and manage encrypted data using a cloud-hosted VSS server.
+The VSS API Client is a Node.js utility designed to interact with a Versioned Storage Service (VSS). It provides functionality to securely store, retrieve, and manage encrypted data using a cloud-hosted VSS server.\
+\
+[Client code](https://github.com/RGB-OS/vss-server)
 
 ***
 
@@ -29,8 +31,8 @@ The VSS API Client is a Node.js utility designed to interact with a Versioned St
 1.  Clone the repository:
 
     ```bash
-    git clone <repository-url>
-    cd <repository-folder>/nodejs-api-client
+    git clone https://github.com/RGB-OS/vss-server
+    cd https://github.com/RGB-OS/vss-server/nodejs-api-client
     ```
 2.  Install dependencies:
 
