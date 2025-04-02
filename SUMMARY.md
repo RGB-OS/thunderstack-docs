@@ -48,5 +48,10 @@
 ## BITCOIN SIDESYSTEMS
 
 * [🌤️ Products](bitcoin-sidesystems/products/README.md)
-  * [⚡  Thunder RPC](bitcoin-sidesystems/products/thunder-rpc.md)
+  * [⚡  Thunder RPC](bitcoin-sidesystems/products/thunder-rpc/README.md)
+    * [⚙️ How It Works?](bitcoin-sidesystems/products/thunder-rpc/how-it-works.md)
+    * [📖 Getting Started](bitcoin-sidesystems/products/thunder-rpc/getting-started.md)
+    * [💿 Compute Units (CUs)](bitcoin-sidesystems/products/thunder-rpc/compute-units-cus.md)
+    * [📀 CUPS (Rate Limit)](bitcoin-sidesystems/products/thunder-rpc/cups-rate-limit.md)
+    * [🌐 Supported Networks](bitcoin-sidesystems/products/thunder-rpc/supported-networks.md)
 * [💳 Billing](bitcoin-sidesystems/billing.md)
