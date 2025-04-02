@@ -41,7 +41,7 @@ The VSS API Client is a Node.js utility designed to interact with a Versioned St
     ```
 3. Configure the client:
    * Update `config.js` with:
-     * **`token`**: [JWT token](../thunderengine/access-token-authorization/create-api-token.md) for authentication.
+     * **`token`**: [JWT token](../bitcoin-native-infrastructure/thunderengine/access-token-authorization/create-api-token.md) for authentication.
      * **`vssServerBaseUrl`**: Base URL for the VSS server.
      * **`ENCRYPTION_KEY`**: 32-byte AES encryption key in Base64 format.
 

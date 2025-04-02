@@ -1,7 +1,3 @@
----
-icon: gear-code
----
-
 # 🏗️ Access Token Authorization
 
 #### **Access Token Usage for API Authentication**

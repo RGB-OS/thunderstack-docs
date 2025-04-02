@@ -1,20 +1,14 @@
 ---
 description: >-
   ThunderStack is a cutting-edge platform that simplifies and enhances the
-  management of RGB infrastructure for developers, businesses, and enterprises.
+  management of Bitcoin infrastructure for developers, businesses, and
+  enterprises.
 ---
 
 # 🌩️ What is ThunderStack?
 
-**Key Components of ThunderStack**
+ThunderStack provides infrastructure for Bitcoin Layers technologies, supporting Bitcoin-native protocols (**RGB, Lightning**) and Bitcoin sidesystems (**Bitcoin rollups** (e.g., BitVM-based) and BTC **sidechains**.
 
-1. **ThunderCloud**: A cloud-based node management solution offering 24/7 availability, no maintenance, and advanced security.
-2. **ThunderEngine**: API-to-Cloud solution enabling seamless interaction with ThunderCloud services for efficient and scalable integrations.
-3. **ThunderFlow**: Delivers inbound liquidity for RGB assets denominated channels and fee management..
-4. **ThunderSafe**: A secure backup solution for encrypted user data with restoration through seed phrases.
-5. **ThunderLink**: Ensures seamless interoperability between services and tools.
-6. **ThunderCore SDK**: A comprehensive SDK combining ThunderEngine (Blockstream Grenlight like product), ThunderFlow(LSP), async payments, and remote signer functionalities.
+We offer **hosting and management of client software**, including nodes, indexers, and API services (e.g., RPC endpoints).
 
-## &#x20;ThunderStack Layered Architecture Overview
-
-<figure><img src=".gitbook/assets/architecture.png" alt=""><figcaption></figcaption></figure>
+ThunderStack simplifies the deployment and operation of Bitcoin Layers infrastructure, allowing developers and businesses to integrate these technologies without the burden of maintaining their own infrastructure.

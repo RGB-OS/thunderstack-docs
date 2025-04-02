@@ -1,7 +1,3 @@
----
-icon: tags
----
-
 # 💳 Pricing
 
 #### Prepaid Plan

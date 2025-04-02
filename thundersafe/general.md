@@ -1,8 +1,4 @@
----
-icon: shield
----
-
-# General
+# 📗 General
 
 **ThunderSafe**, a secure, trustless backup and recovery solution designed for Lightning Network and RGB assets. ThunderSafe provides encrypted cloud backups, multi-device synchronization, and seamless recovery, ensuring your funds and data remain safe and accessible at all times.
 
