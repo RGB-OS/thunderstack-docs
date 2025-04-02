@@ -11,4 +11,4 @@
 
 ## &#x20;ThunderStack Layered Architecture Overview
 
-<figure><img src="../.gitbook/assets/architecture.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/architecture.png" alt=""><figcaption></figcaption></figure>

@@ -14,7 +14,7 @@ The notification will appear at the top of the node details page and include the
 
 > **"Please note: Your current RLN image version is no longer supported. Update your node to the latest version."**
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 #### **Steps to Upgrade the Node**
 

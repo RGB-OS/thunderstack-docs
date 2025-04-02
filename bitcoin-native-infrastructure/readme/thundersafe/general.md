@@ -22,7 +22,7 @@ ThunderSafe is built with privacy and security at its core. Using client-side en
 
 ## ThunderSafe High Level Data Flow
 
-<figure><img src="../.gitbook/assets/vss-diagram.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/vss-diagram.png" alt=""><figcaption></figcaption></figure>
 
 ThunderSafe offers server-side cloud storage solutions specifically tailored for non-custodial RGB supporting mobile wallets. First, it offers a cloud backup for (encrypted) RGB state (L1 & Liquid) and other wallet data that is crucial for recovery if the phone is lost or otherwise unavailable. Second, ThunderSafe enables support for multi-device access to the same wallet, handling the synchronization properly so the wallet doesn’t wind up in a confused state.
 
