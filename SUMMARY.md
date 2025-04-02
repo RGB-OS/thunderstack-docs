@@ -24,7 +24,7 @@
       * [mTLS Certificate Generation](bitcoin-native-infrastructure/getting-started-with-thunderstack-rgb-cloud/security/mtls-authorization/mtls-certificate-generation.md)
   * [Webhooks](bitcoin-native-infrastructure/getting-started-with-thunderstack-rgb-cloud/webhooks.md)
   * [⚙️ RGB Lightning Node API](bitcoin-native-infrastructure/getting-started-with-thunderstack-rgb-cloud/rgb-lightning-node-api.md)
-* [ThunderEngine](bitcoin-native-infrastructure/thunderengine/README.md)
+* [🧠  ThunderEngine](bitcoin-native-infrastructure/thunderengine/README.md)
   * [📙 General](bitcoin-native-infrastructure/thunderengine/general.md)
   * [🛠️ ThunderEngine API](bitcoin-native-infrastructure/thunderengine/thunderstack-api.md)
   * [🏗️ Access Token Authorization](bitcoin-native-infrastructure/thunderengine/access-token-authorization/README.md)
@@ -32,24 +32,24 @@
 
 ***
 
-* [ThunderFlow (LSP)](thunderflow-lsp/README.md)
+* [💧 ThunderFlow (LSP)](thunderflow-lsp/README.md)
   * [📗 General](thunderflow-lsp/general.md)
   * [▶️ Getting Started](thunderflow-lsp/getting-started.md)
   * [💳 Pricing](thunderflow-lsp/pricing.md)
   * [⚙️ RGB LSPS1 APIs](thunderflow-lsp/rgb-lsps1-apis/README.md)
     * [RGB LSP Configuration](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-configuration.md)
     * [RGB LSP Specification](thunderflow-lsp/rgb-lsps1-apis/rgb-lsp-specification.md)
-* [ThunderSafe](thundersafe/README.md)
+* [🔐 ThunderSafe](thundersafe/README.md)
   * [📗 General](thundersafe/general.md)
   * [⚒️ Features](thundersafe/features.md)
   * [▶️ Getting Started](thundersafe/getting-started.md)
-* [ThunderLink](thunderlink/README.md)
+* [🔗 ThunderLink](thunderlink/README.md)
   * [📗 General](thunderlink/general.md)
   * [⚒️ Features](thunderlink/features.md)
   * [▶️ Getting Started](thunderlink/getting-started.md)
 
 ## BITCOIN SIDESYSTEMS
 
-* [Products](bitcoin-sidesystems/products.md)
-* [Billing](bitcoin-sidesystems/billing.md)
-* [Thunder RPC](bitcoin-sidesystems/thunder-rpc.md)
+* [🌤️ Products](bitcoin-sidesystems/products.md)
+* [💳 Billing](bitcoin-sidesystems/billing.md)
+* [⚡  Thunder RPC](bitcoin-sidesystems/thunder-rpc.md)

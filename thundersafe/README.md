@@ -1,2 +1,2 @@
-# ThunderSafe
+# 🔐 ThunderSafe
 

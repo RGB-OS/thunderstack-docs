@@ -1,2 +1,2 @@
-# Thunder RPC
+# ⚡  Thunder RPC
 
