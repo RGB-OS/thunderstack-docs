@@ -20,6 +20,5 @@ ThunderStack supports a diverse range of networks, all unified by their reliance
 * LayerEdge
 * Bitfinity
 * Babylon
-* Fiamma
 * Rootstock
 * Anduro

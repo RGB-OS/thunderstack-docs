@@ -2,7 +2,7 @@
 
 ## ⚙️How It Works?
 
-For every API key a user creates, ThunderStack RPC launches an eRPC proxy that manages incoming requests and redirects them to the appropriate blockchain node. This proxy acts as a lightweight intermediary, ensuring that your requests are routed efficiently to the correct Bitcoin EVM-compatible layers endpoint.
+For every API key a user creates, ThunderStack RPC launches an eRPC proxy that manages incoming requests and redirects them to the appropriate RPC nodes cluster. This proxy acts as a lightweight intermediary, ensuring that your requests are routed efficiently to the correct Bitcoin EVM-compatible layer endpoint.
 
 Each endpoint is secured using the **Secret auth strategy**. This strategy is activated based on the request payload; for instance, if the query string includes a `token` parameter, the secret strategy is engaged.
 

@@ -65,7 +65,7 @@ curl -X POST "https://rpc-<userId>.thunderstack.org/main/evm/<chainId>" \
 
 Replace `<userId>`, `<chainId>`, and `<apiKey>` with your actual user ID, chain identifier, and API key.
 
-This setup will allow you to start making secure JSON-RPC calls to your chosen Bitcoin EVM blockchain seamlessly. Enjoy building with ThunderStack RPC!
+This setup will allow you to start making secure JSON-RPC calls to your chosen Bitcoin EVM-compatible layer seamlessly. Enjoy building with ThunderStack RPC!
 
 [\
 ](https://thunderstack.gitbook.io/thunderstuck-rpc-docs/how-it-works)
