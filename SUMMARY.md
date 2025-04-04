@@ -45,13 +45,13 @@
     * [▶️ Getting Started](bitcoin-native-infrastructure/readme/thunderlink/getting-started.md)
 * [💳 Billing](bitcoin-native-infrastructure/billing.md)
 
-## BITCOIN SIDESYSTEMS
+## BITCOIN SIDESYSTEMS INFRASTRUCTURE
 
-* [🌤️ Products](bitcoin-sidesystems/products/README.md)
-  * [⚡  Thunder RPC](bitcoin-sidesystems/products/thunder-rpc/README.md)
-    * [⚙️ How It Works?](bitcoin-sidesystems/products/thunder-rpc/how-it-works.md)
-    * [📖 Getting Started](bitcoin-sidesystems/products/thunder-rpc/getting-started.md)
-    * [💿 Compute Units (CUs)](bitcoin-sidesystems/products/thunder-rpc/compute-units-cus.md)
-    * [📀 CUPS (Rate Limit)](bitcoin-sidesystems/products/thunder-rpc/cups-rate-limit.md)
-    * [🌐 Supported Networks](bitcoin-sidesystems/products/thunder-rpc/supported-networks.md)
-* [💳 Billing](bitcoin-sidesystems/billing.md)
+* [🌤️ Products](bitcoin-sidesystems-infrastructure/products/README.md)
+  * [⚡  Thunder RPC](bitcoin-sidesystems-infrastructure/products/thunder-rpc/README.md)
+    * [⚙️ How It Works?](bitcoin-sidesystems-infrastructure/products/thunder-rpc/how-it-works.md)
+    * [📖 Getting Started](bitcoin-sidesystems-infrastructure/products/thunder-rpc/getting-started.md)
+    * [💿 Compute Units (CUs)](bitcoin-sidesystems-infrastructure/products/thunder-rpc/compute-units-cus.md)
+    * [📀 CUPS (Rate Limit)](bitcoin-sidesystems-infrastructure/products/thunder-rpc/cups-rate-limit.md)
+    * [🌐 Supported Networks](bitcoin-sidesystems-infrastructure/products/thunder-rpc/supported-networks.md)
+* [💳 Billing](bitcoin-sidesystems-infrastructure/billing.md)
