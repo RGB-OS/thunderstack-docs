@@ -92,4 +92,4 @@ If you're sending a RPC request with an incorrect payload, it will cost:
 
 **How much monthly quota do I have?**
 
-We provide ThunderStack RPC users different tiers of daily quota according to their pricing plan. Pleaserefer to our [pricing plan](https://thunderstack.gitbook.io/thunderstuck-rpc-docs/pricing).
+We provide ThunderStack RPC users different tiers of daily quota according to their pricing plan. Please refer to our [pricing plan](https://thunderstack.gitbook.io/thunderstuck-rpc-docs/pricing).
