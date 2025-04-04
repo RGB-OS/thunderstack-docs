@@ -62,9 +62,9 @@ If ThunderStack RPC received requests using unsupported RPC method, the CUs are 
 
 **How does ThunderStack RPC calculate my daily CU quota?**
 
-We accumulate the monthly usage by account. Regardless of how many API Keys you created in your account, we calculate the usage by summing the entire usage across all API Keys.
+We accumulate the daily usage by account. Regardless of how many API Keys you created in your account, we calculate the usage by summing the entire usage across all API Keys.
 
-**What happens if I run out of monthly CU quota?**
+**What happens if I run out of** daily **CU quota?**
 
 If you keep sending RPC request even though you've reached the daily CU quota, the request will fail and you will receive http 429 error and an error code: -**32005**
 
@@ -90,6 +90,6 @@ If you're sending a RPC request with an incorrect payload, it will cost:
 * **If incorrect method**: it will cost you 2 usage for incorrect or unsupported RPC method.
 * **If other parameters are incorrect, or execution failed due to the wrong payload**: it will consume the original cost of each method.
 
-**How much monthly quota do I have?**
+**How much** daily **quota do I have?**
 
 We provide ThunderStack RPC users different tiers of daily quota according to their pricing plan. Please refer to our [pricing plan](https://thunderstack.gitbook.io/thunderstuck-rpc-docs/pricing).
