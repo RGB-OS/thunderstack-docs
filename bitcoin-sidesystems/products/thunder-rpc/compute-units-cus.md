@@ -10,163 +10,51 @@ Below are the CUs for each method. We define the CUs based on the resource requi
 
 **Supported Method**
 
-MethodCUs
+| Method                                   | CUs  |
+| ---------------------------------------- | ---- |
+| eth\_accounts                            | 5    |
+| eth\_blockNumber                         | 5    |
+| eth\_chainId                             | 5    |
+| eth\_syncing                             | 5    |
+| net\_listening                           | 5    |
+| net\_version                             | 5    |
+| web3\_clientVersion                      | 5    |
+| eth\_subscribe                           | 10   |
+| eth\_uninstallFilter                     | 10   |
+| eth\_unsubscribe                         | 10   |
+| web3\_sha3                               | 10   |
+| eth\_signTransaction                     | 10   |
+| net\_peerCount                           | 10   |
+| eth\_gasPrice                            | 15   |
+| eth\_getBalance                          | 15   |
+| eth\_getBlockByNumber                    | 15   |
+| eth\_getCode                             | 15   |
+| eth\_getStorageAt                        | 15   |
+| eth\_getTransactionByBlockHashAndIndex   | 15   |
+| eth\_getTransactionByBlockNumberAndIndex | 15   |
+| eth\_getTransactionByHash                | 15   |
+| eth\_getTransactionReceipt               | 15   |
+| eth\_getBlockByHash                      | 18   |
+| eth\_getBlockTransactionCountByHash      | 18   |
+| eth\_getBlockTransactionCountByNumber    | 18   |
+| eth\_getFilterChanges                    | 18   |
+| eth\_newBlockFilter                      | 18   |
+| eth\_newFilter                           | 18   |
+| eth\_newPendingTransactionFilter         | 18   |
+| eth\_call                                | 20   |
+| eth\_getTransactionCount                 | 25   |
+| eth\_getFilterLogs                       | 50   |
+| eth\_getLogs                             | 50   |
+| eth\_estimateGas                         | 75   |
+| eth\_sendRawTransaction                  | 150  |
+| debug\_traceTransaction                  | 280  |
+| debug\_traceCall                         | 280  |
+| debug\_traceBlockByNumber                | 1800 |
+| debug\_traceBlockByHash                  | 1800 |
 
-eth\_accounts
 
-5
 
-eth\_blockNumber
 
-5
-
-eth\_chainId
-
-5
-
-eth\_syncing
-
-5
-
-net\_listening
-
-5
-
-net\_version
-
-5
-
-web3\_clientVersion
-
-5
-
-eth\_subscribe
-
-10
-
-eth\_uninstallFilter
-
-10
-
-eth\_unsubscribe
-
-10
-
-web3\_sha3
-
-10
-
-eth\_signTransaction
-
-10
-
-net\_peerCount
-
-10
-
-eth\_gasPrice
-
-15
-
-eth\_getBalance
-
-15
-
-eth\_getBlockByNumber
-
-15
-
-eth\_getCode
-
-15
-
-eth\_getStorageAt
-
-15
-
-eth\_getTransactionByBlockHashAndIndex
-
-15
-
-eth\_getTransactionByBlockNumberAndIndex
-
-15
-
-eth\_getTransactionByHash
-
-15
-
-eth\_getTransactionReceipt
-
-15
-
-eth\_getBlockByHash
-
-18
-
-eth\_getBlockTransactionCountByHash
-
-18
-
-eth\_getBlockTransactionCountByNumber
-
-18
-
-eth\_getFilterChanges
-
-18
-
-eth\_newBlockFilter
-
-18
-
-eth\_newFilter
-
-18
-
-eth\_newPendingTransactionFilter
-
-18
-
-eth\_call
-
-20
-
-eth\_getTransactionCount
-
-25
-
-eth\_getFilterLogs
-
-50
-
-eth\_getLogs
-
-50
-
-eth\_estimateGas
-
-75
-
-eth\_sendRawTransaction
-
-150
-
-debug\_traceTransaction
-
-280
-
-debug\_traceCall
-
-280
-
-debug\_traceBlockByNumber
-
-1800
-
-debug\_traceBlockByHash
-
-1800
 
 **Unsupported Method**
 
