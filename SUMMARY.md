@@ -5,6 +5,10 @@
 * [🌩️ What is ThunderStack?](README.md)
 * [😎 Support](welcome/support.md)
 
+***
+
+* [FAQ](faq.md)
+
 ## Bitcoin Native Infrastructure
 
 * [🌩️ Products](bitcoin-native-infrastructure/readme/README.md)
