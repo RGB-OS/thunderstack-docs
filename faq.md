@@ -1,3 +1,7 @@
+---
+icon: question
+---
+
 # FAQ
 
 This document is organized into major sections for **Bitcoin-Native Infrastructure** (covering Lightning and RGB-based tools) and **Bitcoin Sidechains** (covering sidechain and rollup connectivity).
