@@ -32,3 +32,62 @@ Through configurable watchers, the server periodically polls ThunderLink Cloud f
 
 **4.Security & Isolation**\
 The design maintains a clear security boundary:  the Server-Client is the only component with access to private keys. It should run in a secure environment under the merchant’s control. All communications between the Server-Client and ThunderLink RGB Manager are authenticated. The RGB Client Server should verify the PSBT details from ThunderLink RGB Manager before signing, acting as a final gate against any tampering. The merchant trusts this component as part of their infrastructure, similar to how they would trust their own wallet or exchange backend.
+
+
+
+### Advanced Usage: Build Your Own RGB Client Server
+
+While the **ThunderLink RGB Client Server** offers a ready-to-deploy backend service with sensible defaults and a full feature set, **advanced users** may choose to build their own custom implementation to better fit their infrastructure, business logic, or deployment model.
+
+To support this, ThunderLink provides the core library: [`rgb-connect-nodejs`](https://www.npmjs.com/package/rgb-connect-nodejs).
+
+#### `rgb-connect-nodejs` Library
+
+This is the underlying SDK used by the official RGB Client Server. It provides a complete set of TypeScript/Node.js bindings for interacting with the **ThunderLink RGB Manager** and managing RGB-based transfers.
+
+With this library, developers can:
+
+* Generate RGB invoices&#x20;
+* Create and manage UTXOs
+* Sign PSBTs using local private keys or hardware signing flows
+* Fetch asset balances, transfer status, and other RGB-related state
+
+#### When to Use a Custom Server
+
+You might consider building your own RGB Client Server if:
+
+* You need to integrate with an existing wallet infrastructure
+* You want to expose a different API surface to your frontend SDK
+* You are integrating deeply with other financial systems or order management logic
+* You want to apply non-standard business rules or policy enforcement
+* You’re running a large-scale exchange or payment platform and require full control over infrastructure, monitoring, and debugging
+
+#### Capabilities of `rgb-connect-nodejs` (via WalletManager)
+
+| Method                                  | Description                                                                                |
+| --------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `generateKeys()`                        | Generates a new wallet keypair and returns mnemonic, xpub                                  |
+| `registerWallet()`                      | Registers the wallet with the ThunderLink RGB Manager and syncs the current state.         |
+| `getBtcBalance()`                       | Returns the current on-chain BTC balance of the wallet.                                    |
+| `getAddress()`                          | Returns a new deposit address derived from the wallet’s xpub.                              |
+| `listUnspents()`                        | Lists all unspent UTXOs associated with the wallet.                                        |
+| `listAssets()`                          | Lists all RGB assets currently held by the wallet.                                         |
+| `getAssetBalance(assetId)`              | Retrieves the balance for a specific RGB asset.                                            |
+| `createUtxosBegin(params)`              | Begins the process of creating new UTXOs (e.g., for future asset transfers).               |
+| `createUtxosEnd({ signedPsbt })`        | Finalizes UTXO creation by submitting a signed PSBT.                                       |
+| `blindRecive({ asset_id, amount })`     | Generates a blinded UTXO to receive a transfer of an RGB asset.                            |
+| `issueAssetNia({...})`                  | Issues a new RGB asset of type NIA (Non-Inflationary Asset).                               |
+| `signPsbt({ psbtBase64, mnemonic })`    | Signs a PSBT using a mnemonic phrase-derived key (via BDK WASM).                           |
+| `refreshWallet()`                       | Refreshes wallet state (balances, transfers, etc.) by re-syncing with ThunderLink Manager. |
+| `listTransactions()`                    | Returns a list of BTC transactions related to the wallet.                                  |
+| `listTransfers(asset_id)`               | Returns a list of RGB transfers (incoming/outgoing) for a specific asset.                  |
+| `failTransfers({ batch_transfer_idx })` | Marks a transfer batch as failed—used for expired or invalid transfers.                    |
+
+***
+
+#### Notes for Custom Integration
+
+* All communication with the ThunderLink RGB Manager is handled via HTTP API calls encapsulated in the `ThunderLink` class.
+* The `signPsbt` method demonstrates how to integrate a signing flow using `bdk-wasm`. This can be replaced with your own HSM or hardware wallet integration if needed.
+* By using this SDK, developers have full control over transfer orchestration, UTXO selection, invoice lifecycle, and signing policies.
+* This pattern enables advanced use cases, such as integrating with third-party identity/auth layers, batching logic, compliance tracking, or internal audit flows.
