@@ -17,7 +17,7 @@ This component can run as a Docker container or a standalone Node.js server, all
 **Configurations**\
 Operational options—such as enabling or disabling watchers, setting the UTXO limit, and customizing watcher intervals—can be configured using environment variables.
 
-Functional Responsibilities:
+**Functional Responsibilities:**
 
 **1. Key Management & Signing**\
 The primary responsibility of the **RGB Client Server** is to securely manage the merchant’s  keys or interface with a secure key management system.\
@@ -32,6 +32,49 @@ Through configurable watchers, the server periodically polls ThunderLink Cloud f
 
 **4.Security & Isolation**\
 The design maintains a clear security boundary:  the Server-Client is the only component with access to private keys. It should run in a secure environment under the merchant’s control. All communications between the Server-Client and ThunderLink RGB Manager are authenticated. The RGB Client Server should verify the PSBT details from ThunderLink RGB Manager before signing, acting as a final gate against any tampering. The merchant trusts this component as part of their infrastructure, similar to how they would trust their own wallet or exchange backend.
+
+### Webhook Integration: Triggering Transfer Completion
+
+The **RGB Client Server** supports incoming webhook calls that enable external systems (such as payment verifiers, order processors, or off-chain KYC platforms) to **programmatically trigger the finalization of RGB asset transfers**.
+
+#### Purpose
+
+Webhooks are used to notify the Client Server that a transfer is approved and ready to be completed. Upon receiving a valid webhook request, the server will invoke `wallet.send(...)`, which finalizes the transfer by signing and broadcasting the transaction.
+
+***
+
+#### Webhook Authentication
+
+To protect against unauthorized access, the webhook endpoint requires a valid secret to be included in the request header:
+
+* **Header**: `x-webhook-secret`
+* **Value**: Must match the `WEBHOOK_SECRET` environment variable defined in the server.
+
+***
+
+#### &#x20;Endpoint
+
+```http
+POST /webhook/transfer-confirmed
+```
+
+#### Request Body
+
+```json
+{
+  "recipient_id": "bcrt:utxob:abc123...",
+  "asset_id": "rgb:XYZ456...",
+  "amount": 1234
+}
+```
+
+| Field          | Description                                 |
+| -------------- | ------------------------------------------- |
+| `recipient_id` | Blinded UTXO to receive the RGB asset       |
+| `asset_id`     | The RGB asset identifier                    |
+| `amount`       | Transfer amount (in smallest unit of asset) |
+
+***
 
 
 
@@ -80,6 +123,8 @@ To send an RGB asset using a PSBT flow:
    Submit the signed PSBT via `sendEnd({ signed_psbt })` to complete the transfer.
 
 > 💡 The `send()` method automates this three-step flow, making it easier to programmatically send assets in one function call. This method is intended to be used **internally on the backend only**, after all transfer requirements (such as sufficient balance, recipient validation, and policy checks) have been verified. It should not be exposed to client-side logic.
+
+
 
 #### Notes for Custom Integration
 

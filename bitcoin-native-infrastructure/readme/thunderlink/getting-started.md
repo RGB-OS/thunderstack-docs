@@ -23,6 +23,7 @@ The server is configured via environment variables to match your operational and
 | `ENABLE_WATCHERS`      | Whether background watchers should run (`true` or `false`)                |
 | `WATCHER_INTERVAL_MS`  | Polling interval for checking transfer status (in milliseconds)           |
 | `PORT`                 | The local port to expose SDK endpoints                                    |
+| `WEBHOOK_SECRET`       | A shared secret used to authenticate incoming webhook requests.           |
 
 > 🔐 **Custom Auth:** The server includes a pluggable authentication interface. You can implement your own logic to authorize SDK calls (e.g., using sessions, API keys, or JWTs).
 
