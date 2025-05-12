@@ -1,8 +1,14 @@
+---
+icon: book-open
+---
+
 # Overwiew
 
+**ThunderLink** is a **drop-in solution** for integrating **RGB asset transfers**. It offers a **simple HTTP REST API**, designed for **developer-friendliness** and **ease of integration** with **near-zero configuration**.
+
+ThunderLink eliminates the complexity of handling RGB asset transactions, making it ideal for developers, businesses, and platforms looking to accept RGB transfers seamlessly.
+
 ## ThunderLink: UI/UX and Functional Design Description
-
-
 
 ThunderLink is a plug-and-play integration layer for RGB assets on Bitcoin L1, aiming to be the “Stripe for RGB payments.” It enables businesses (exchanges, online merchants, etc.) to easily accept and manage RGB-based tokens with an experience similar to familiar payment gateways (Stripe, PayPal, Coinbase Commerce, CoinPayments). The system is composed of three main components working together:
 

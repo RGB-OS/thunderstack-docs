@@ -44,14 +44,11 @@
     * [⚒️ Features](bitcoin-native-infrastructure/readme/thundersafe/features.md)
     * [▶️ Getting Started](bitcoin-native-infrastructure/readme/thundersafe/getting-started.md)
   * [🔗 ThunderLink](bitcoin-native-infrastructure/readme/thunderlink/README.md)
-    * [📗 General](bitcoin-native-infrastructure/readme/thunderlink/general.md)
-    * [⚒️ Features](bitcoin-native-infrastructure/readme/thunderlink/features.md)
-    * [▶️ Getting Started](bitcoin-native-infrastructure/readme/thunderlink/getting-started.md)
     * [Overwiew](bitcoin-native-infrastructure/readme/thunderlink/overwiew.md)
     * [RGB Manager](bitcoin-native-infrastructure/readme/thunderlink/rgb-manager.md)
     * [RGB Client Server](bitcoin-native-infrastructure/readme/thunderlink/rgb-client-server.md)
     * [RGB Client SDK (Frontend)](bitcoin-native-infrastructure/readme/thunderlink/rgb-client-sdk-frontend.md)
-    * [Getting Started](bitcoin-native-infrastructure/readme/thunderlink/getting-started-1.md)
+    * [Getting Started](bitcoin-native-infrastructure/readme/thunderlink/getting-started.md)
 * [💳 Billing](bitcoin-native-infrastructure/billing.md)
 
 ## BITCOIN SIDESYSTEMS INFRASTRUCTURE
