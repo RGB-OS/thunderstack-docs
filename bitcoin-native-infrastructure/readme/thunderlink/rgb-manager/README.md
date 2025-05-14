@@ -1,6 +1,10 @@
+---
+description: 'URL: https://rgb-manager.thunderstack.org'
+---
+
 # RGB Manager
 
-The ThunderLink RGB Manager, hosted by ThunderStack, manages RGB state for merchants. It offers a secure API for tasks such as creating RGB invoices, tracking asset transfers, and building Partially Signed Bitcoin Transactions (PSBTs). This server encapsulates the RGB protocol library, handling both off-chain state and on-chain commitments of RGB
+The ThunderLink RGB Manager, hosted by ThunderStack, manages RGB state for merchants. It offers a secure API for tasks such as creating RGB invoices, tracking asset transfers, and building Partially Signed Bitcoin Transactions (PSBTs). This server encapsulates the RGB protocol library, handling both off-chain state and on-chain commitments of RGB.
 
 **Functional Responsibilities:**
 

@@ -1,3 +1,7 @@
+---
+description: 'URL: https://rgb-manager.thunderstack.org'
+---
+
 # API reference
 
 {% openapi-operation spec="thunderstack-api" path="/wallet/register" method="post" %}
