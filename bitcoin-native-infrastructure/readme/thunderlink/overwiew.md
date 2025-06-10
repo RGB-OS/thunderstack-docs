@@ -14,7 +14,9 @@ ThunderLink is a plug-and-play integration layer for RGB assets on Bitcoin L1, a
 
 * ThunderLink RGB Manager (managed by ThunderLink) – provides the core RGB asset functionality and APIs (invoice generation, state tracking, PSBT handling).\
 
-* ThunderLink RGB Server (Merchant Node) – run by the customer (exchange or merchant) on their own infrastructure, holding their private keys and responsible for signing Bitcoin transactions (via PSBT).\
+* **ThunderLink RGB Signer**  (Merchant Node) – is a lightweight service run by the customer (exchange or merchant) on their own infrastructure, holding their private keys and responsible for signing Bitcoin transactions (via PSBT). Communicating via RabbitMQ to listen for signing requests on a private channel, signing PSBTs sent by the ThunderLink RGB Manager,&#x20;
+
+
 
 * ThunderLink RGB Client SDK (Frontend) – a lightweight React library that integrates into websites or apps (web stores, exchange UIs) to present UI elements (e.g. “Pay with RGB” buttons, payment widgets) and communicate with the merchant’s Server.\
 
@@ -29,6 +31,6 @@ This design description will detail the UI/UX flow for each component, illustrat
 
 ThunderLink architecture separates concerns of asset logic, private key custody, and user interface for maximum security and ease of integration. Below is an overview of how the components interact in the system:
 
-The **Client SDK** (used in the front-end) communicates with the **ThunderLink RGB Manager** _via the merchant’s Server_, which is operated by the customer. This server holds sensitive data, signs transactions, and acts as a secure intermediary. It interacts with the **ThunderLink RGB Manager** through API calls to coordinate RGB asset state and Bitcoin transactions using PSBTs (Partially Signed Bitcoin Transactions). The **Bitcoin Layer 1 network** serves as the settlement layer, while users pay invoices using an **RGB-compatible wallet**.
+The **Client SDK** (used in the front-end) communicates with the RGB _via_ **ThunderLink RGB Manager.** This server holds no sensitive data, signs transactions, and acts as a secure intermediary. It interacts with the **ThunderLink RGB Manager** through API calls to coordinate RGB asset state and Bitcoin transactions using PSBTs (Partially Signed Bitcoin Transactions). The **Bitcoin Layer 1 network** serves as the settlement layer, while users pay invoices using an **RGB-compatible wallet**.
 
 \
