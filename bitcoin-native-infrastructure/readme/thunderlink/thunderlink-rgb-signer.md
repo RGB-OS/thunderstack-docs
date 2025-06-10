@@ -4,7 +4,7 @@
 
 ***
 
-### 🔐 Purpose
+### Purpose
 
 * Holds or accesses the merchant’s private keys
 * Listens for signing requests from ThunderLink RGB Manager
@@ -51,3 +51,8 @@ Currently supported:
 * **No public-facing ports**: All communication is internal via RabbitMQ.
 * **Private keys are never transmitted**: Only unsigned PSBTs and signed responses are exchanged.
 * **Signer is isolated**: Runs inside your infrastructure, fully under customer control.
+
+### 📁 Repository
+
+Git repo: \
+&#x20;[ThunderLink RGB Signer on GitHub](https://github.com/RGB-OS/thunderlink-signer)
