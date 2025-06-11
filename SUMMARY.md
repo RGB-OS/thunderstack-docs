@@ -52,7 +52,6 @@
       * [Webhook](bitcoin-native-infrastructure/readme/thunderlink/rgb-client-server/webhook.md)
     * [RGB Client SDK (Frontend)](bitcoin-native-infrastructure/readme/thunderlink/rgb-client-sdk-frontend.md)
     * [Getting Started](bitcoin-native-infrastructure/readme/thunderlink/getting-started.md)
-    * [Overwiew Updated](bitcoin-native-infrastructure/readme/thunderlink/overwiew-updated.md)
     * [ThunderLink RGB Signer](bitcoin-native-infrastructure/readme/thunderlink/thunderlink-rgb-signer.md)
 * [💳 Billing](bitcoin-native-infrastructure/billing.md)
 
