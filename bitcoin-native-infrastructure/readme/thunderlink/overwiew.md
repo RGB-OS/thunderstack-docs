@@ -14,7 +14,7 @@ ThunderLink is a plug-and-play integration layer for RGB assets on Bitcoin L1, a
 
 * **ThunderLink RGB Manager** (managed by ThunderLink) – provides the core RGB asset functionality and APIs (invoice generation, state tracking, PSBT handling).\
 
-* **ThunderLink RGB Signer**  (Merchant Node) – is a lightweight service run by the customer (exchange or merchant) on their own infrastructure, holding their private keys and responsible for signing Bitcoin transactions (via PSBT). Communicating via RabbitMQ to listen for signing requests on a private channel, signing PSBTs sent by the ThunderLink RGB Manager, \
+* **ThunderLink RGB Signer** – is a lightweight service run by the customer (exchange or merchant) on their own infrastructure, holding their private keys and responsible for signing Bitcoin transactions (via PSBT). Communicating via RabbitMQ to listen for signing requests on a private channel, signing PSBTs sent by the ThunderLink RGB Manager, \
 
 
 Target Users: The primary users are crypto exchanges (who can integrate ThunderLink for RGB token deposits & withdrawals) and RGB application developers or merchants who want to accept RGB asset payments in their apps or online stores. Secondary users include end-customers using an RGB-compatible wallet to make payments on these platforms.
