@@ -47,7 +47,7 @@
     * [Overwiew](bitcoin-native-infrastructure/readme/thunderlink/overwiew.md)
     * [RGB Manager](bitcoin-native-infrastructure/readme/thunderlink/rgb-manager/README.md)
       * [API reference](bitcoin-native-infrastructure/readme/thunderlink/rgb-manager/api-reference.md)
-    * [ThunderLink RGB Signer](bitcoin-native-infrastructure/readme/thunderlink/thunderlink-rgb-signer.md)
+    * [RGB Signer](bitcoin-native-infrastructure/readme/thunderlink/rgb-signer.md)
 * [💳 Billing](bitcoin-native-infrastructure/billing.md)
 
 ## BITCOIN SIDESYSTEMS INFRASTRUCTURE
