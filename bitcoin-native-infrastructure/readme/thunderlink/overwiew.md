@@ -19,7 +19,7 @@ ThunderLink is a plug-and-play integration layer for RGB assets on Bitcoin L1, a
 
 Target Users: The primary users are crypto exchanges (who can integrate ThunderLink for RGB token deposits & withdrawals) and RGB application developers or merchants who want to accept RGB asset payments in their apps or online stores. Secondary users include end-customers using an RGB-compatible wallet to make payments on these platforms.
 
-
+<figure><img src="../../../.gitbook/assets/diagram-export-11.06.2025-20_58_02.png" alt=""><figcaption></figcaption></figure>
 
 ### Architecture and Component Interaction
 
