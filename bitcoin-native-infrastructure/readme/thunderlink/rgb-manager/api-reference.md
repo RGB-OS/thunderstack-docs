@@ -1,5 +1,5 @@
 ---
-description: 'URL: https://rgb-manager.thunderstack.org'
+description: 'URL: https://rgb-nodejs-server.thunderstack.org/api/'
 ---
 
 # API reference
