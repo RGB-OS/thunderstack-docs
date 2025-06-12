@@ -33,4 +33,14 @@ The ThunderLink architecture cleanly separates the concerns of asset logic, key 
 * The **Bitcoin L1 network** provides the settlement layer for finalizing transactions.
 * **Users pay invoices using an RGB-compatible wallet** (e.g., mobile or desktop wallet that supports blinded UTXOs and RGB transfer formats).
 
+Deposite&#x20;
+
+### ThunderLink Deposite Flow
+
+<figure><img src="../../../.gitbook/assets/diagram-export-12.06.2025-15_12_28.png" alt=""><figcaption></figcaption></figure>
+
+### ThunderLink Withdraw&#x20;
+
+<figure><img src="../../../.gitbook/assets/diagram-export-12.06.2025-15_59_35.png" alt=""><figcaption></figcaption></figure>
+
 \
