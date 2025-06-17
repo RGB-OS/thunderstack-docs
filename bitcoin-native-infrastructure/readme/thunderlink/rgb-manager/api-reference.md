@@ -4,11 +4,27 @@ description: 'URL: https://rgb-nodejs-server.thunderstack.org/api/'
 
 # API reference
 
+{% openapi-operation spec="thunderstack-api" path="/wallet/generate_keys" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
 {% openapi-operation spec="thunderstack-api" path="/wallet/register" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="thunderstack-api" path="/wallet/listunspents" method="post" %}
+{% openapi-operation spec="thunderstack-api" path="/wallet/listassets" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="thunderstack-api" path="/wallet/address" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="thunderstack-api" path="/wallet/assetbalance" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="thunderstack-api" path="/wallet/btcbalance" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
@@ -20,23 +36,7 @@ description: 'URL: https://rgb-nodejs-server.thunderstack.org/api/'
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="thunderstack-api" path="/wallet/listassets" method="post" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="thunderstack-api" path="/wallet/btcbalance" method="post" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="thunderstack-api" path="/wallet/address" method="post" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="thunderstack-api" path="/wallet/issueassetnia" method="post" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="thunderstack-api" path="/wallet/assetbalance" method="post" %}
+{% openapi-operation spec="thunderstack-api" path="/wallet/listunspends" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
@@ -48,7 +48,7 @@ description: 'URL: https://rgb-nodejs-server.thunderstack.org/api/'
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="thunderstack-api" path="/blindreceive" method="post" %}
+{% openapi-operation spec="thunderstack-api" path="/wallet/listtransfers" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
@@ -56,11 +56,11 @@ description: 'URL: https://rgb-nodejs-server.thunderstack.org/api/'
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="thunderstack-api" path="/wallet/listtransactions" method="post" %}
+{% openapi-operation spec="thunderstack-api" path="/wallet/issueassetnia" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="thunderstack-api" path="/wallet/listtransfers" method="post" %}
+{% openapi-operation spec="thunderstack-api" path="/wallet/decodergbinvoice" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
@@ -68,6 +68,10 @@ description: 'URL: https://rgb-nodejs-server.thunderstack.org/api/'
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-schemas spec="thunderstack-api" schemas="AssetBalanceRequest,CreateUtxosBegin,CreateUtxosEnd,FailTransferRequestModel,HTTPValidationError,IssueAssetNiaRequestModel,ListTransfersRequestModel,Recipient,RgbInvoiceRequestModel,SendAssetBeginRequestModel,SendAssetEndRequestModel,ValidationError,WitnessData" grouped="true" %}
+{% openapi-operation spec="thunderstack-api" path="/invoice/create" method="post" %}
 [Broken link](broken-reference)
-{% endopenapi-schemas %}
+{% endopenapi-operation %}
+
+{% openapi-operation spec="thunderstack-api" path="/invoice/status" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
