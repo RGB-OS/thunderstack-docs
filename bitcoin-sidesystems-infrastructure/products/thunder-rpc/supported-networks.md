@@ -22,3 +22,6 @@ ThunderStack supports a diverse range of networks, all unified by their reliance
 * Babylon
 * Rootstock
 * Anduro
+
+We actively track the latest developments in Bitcoin Layer 2s and continue to expand our support.\
+If you'd like to request support for a specific network, feel free to reach out at **contact@thunderstack.org**.

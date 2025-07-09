@@ -1,6 +1,6 @@
 # 📖 Getting Started
 
-#### Navigate to [ThunderStack RPC App](https://rpc.thunderstack.org/) <a href="#navigate-to-thunderstack-rpc-app" id="navigate-to-thunderstack-rpc-app"></a>
+#### Request access to ThunderStack RPC App <a href="#navigate-to-thunderstack-rpc-app" id="navigate-to-thunderstack-rpc-app"></a>
 
 #### 1. Sign Up / Sign In <a href="#id-1.-sign-up-sign-in" id="id-1.-sign-up-sign-in"></a>
 
