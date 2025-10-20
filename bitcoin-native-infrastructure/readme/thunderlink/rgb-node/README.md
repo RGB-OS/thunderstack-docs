@@ -40,3 +40,8 @@ For outgoing transactions,  RGB Node creates a Partially Signed Bitcoin Transact
 ### State Tracking
 
 The server tracks the merchant's RGB wallet state. It manages necessary data to validate and update asset ownership during transactions. When an invoice is paid, the asset state is updated and documented for the merchant. It also handles synchronization of state updates across transactions.
+
+### 📁 Repository
+
+Git repo: \
+&#x20;[RGB-Node on GitHub](https://github.com/RGB-OS/rgb-connect-nodejs)
