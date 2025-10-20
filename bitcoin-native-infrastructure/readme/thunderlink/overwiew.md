@@ -12,7 +12,7 @@ ThunderLink eliminates the complexity of handling RGB asset transactions, making
 
 ThunderLink is a plug-and-play integration layer for RGB assets on Bitcoin L1, aiming to be the “Stripe for RGB payments.” It enables businesses (exchanges, online merchants, etc.) to easily accept and manage RGB-based tokens with an experience similar to familiar payment gateways (Stripe, PayPal, Coinbase Commerce, CoinPayments). The system is composed of three main components working together:
 
-* **ThunderLink RGB Manager** (managed by ThunderLink) – provides the core RGB asset functionality and APIs (invoice generation, state tracking, PSBT handling).\
+* **ThunderLink RGB Node** (managed by ThunderLink) – provides the core RGB asset functionality and APIs (invoice generation, state tracking, PSBT handling).\
 
 * **ThunderLink RGB Signer** – is a lightweight service run by the customer (exchange or merchant) on their own infrastructure, holding their private keys and responsible for signing Bitcoin transactions (via PSBT). Communicating via RabbitMQ to listen for signing requests on a private channel, signing PSBTs sent by the ThunderLink RGB Manager, \
 
