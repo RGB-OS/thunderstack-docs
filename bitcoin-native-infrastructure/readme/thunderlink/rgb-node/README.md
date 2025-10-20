@@ -44,4 +44,4 @@ The server tracks the merchant's RGB wallet state. It manages necessary data to 
 ### 📁 Repository
 
 Git repo: \
-&#x20;[RGB-Node on GitHub](https://github.com/RGB-OS/rgb-connect-nodejs)
+&#x20;[RGB-Node on GitHub](https://github.com/RGB-OS/RGB-Node)
