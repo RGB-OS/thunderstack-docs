@@ -22,19 +22,19 @@
 
     <figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-NOTE: For ThunderStack Regtest you must manually mine blocks and send BTC using the curl commands:\
+NOTE: For the ThunderStack Regtest Network, you must manually mine blocks and send BTC using the curl command:\
 \
 To mine blocks:\
 \
-curl --location 'http://18.119.98.232:5000/execute' \\\
-&#x20; \--header 'Content-Type: application/json' \\\
-&#x20; \--data '{ "args": "mine 10" }'\
+`curl --location 'http://18.119.98.232:5000/execute' \`\
+&#x20; `--header 'Content-Type: application/json' \`\
+&#x20; `--data '{ "args": "mine 10" }'`\
 \
-To send BTC to a wallet:\
+To send BTC to an address:\
 \
-curl --location 'http://18.119.98.232:5000/execute' \\\
-&#x20; \--header 'Content-Type: application/json' \\\
-&#x20; \--data '{ "args": "sendtoaddress \<address> 0.1" }'
+`curl --location 'http://18.119.98.232:5000/execute' \`\
+&#x20; `--header 'Content-Type: application/json' \`\
+&#x20; `--data '{ "args": "sendtoaddress <address> 0.1" }'`
 
 **Step 3: Monitor Node Creation Status**
 
