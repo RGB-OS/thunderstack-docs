@@ -22,19 +22,19 @@
 
     <figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-NOTE: For the ThunderStack Regtest Network, you must manually mine blocks and send BTC using the curl command:\
-\
-To mine blocks:\
-\
-`curl --location 'http://18.119.98.232:5000/execute' \`\
-&#x20; `--header 'Content-Type: application/json' \`\
-&#x20; `--data '{ "args": "mine 10" }'`\
-\
-To send BTC to an address:\
-\
-`curl --location 'http://18.119.98.232:5000/execute' \`\
-&#x20; `--header 'Content-Type: application/json' \`\
-&#x20; `--data '{ "args": "sendtoaddress <address> 0.1" }'`
+> NOTE: On the ThunderStack Regtest Network, block mine doesn’t happen automatically, you need to manually mine blocks using the provided `curl` commands whenever you want the chain to advance or confirm activity.\
+> \
+> To mine blocks:\
+> \
+> `curl --location 'http://18.119.98.232:5000/execute' \`\
+> &#x20; `--header 'Content-Type: application/json' \`\
+> &#x20; `--data '{ "args": "mine 10" }'`\
+> \
+> If you need test BTC, just use the `sendtoaddress` command — it works like a local faucet — and then manually mine a block with the provided `curl` command to confirm it.\
+> \
+> `curl --location 'http://18.119.98.232:5000/execute' \`\
+> &#x20; `--header 'Content-Type: application/json' \`\
+> &#x20; `--data '{ "args": "sendtoaddress <address> 0.1" }'`
 
 **Step 3: Monitor Node Creation Status**
 
