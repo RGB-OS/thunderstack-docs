@@ -48,6 +48,7 @@
     * [RGB Node](bitcoin-native-infrastructure/readme/thunderlink/rgb-node/README.md)
       * [API reference](bitcoin-native-infrastructure/readme/thunderlink/rgb-node/api-reference.md)
       * [UTEXO API reference](bitcoin-native-infrastructure/readme/thunderlink/rgb-node/utexo-api-reference.md)
+      * [UTEXO Lightning Payments](bitcoin-native-infrastructure/readme/thunderlink/rgb-node/utexo-lightning-payments.md)
     * [RGB SDK](bitcoin-native-infrastructure/readme/thunderlink/rgb-sdk.md)
     * [RGB Signer](bitcoin-native-infrastructure/readme/thunderlink/rgb-signer.md)
   * [Lumen](bitcoin-native-infrastructure/readme/lumen.md)
