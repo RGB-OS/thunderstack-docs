@@ -61,8 +61,7 @@ You’ll need:
 
 #### 4. Connect in Lumen
 
-1.  Open the Lumen extension.\
-
+1.  Open the Lumen extension.<br>
 
     <figure><img src="../../.gitbook/assets/Знімок екрана 2025-09-22 о 12.38.45 (1).png" alt=""><figcaption></figcaption></figure>
 2. Enter the API endpoint and token.

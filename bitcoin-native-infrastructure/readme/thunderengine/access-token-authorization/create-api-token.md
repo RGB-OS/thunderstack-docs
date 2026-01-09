@@ -2,15 +2,13 @@
 
 **Creating an Access Token**
 
-&#x20;Step 1: Navigate to API Tokens page -> Create Access Token\
-
+&#x20;Step 1: Navigate to API Tokens page -> Create Access Token<br>
 
 <figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 
 
-Step 2: Input token name. This helps manage multiple tokens.\
-
+Step 2: Input token name. This helps manage multiple tokens.<br>
 
 Step 3: **Revoking a Token**
 

@@ -23,4 +23,4 @@ icon: lock-keyhole
 
     After the upload is successfully completed, a "Restore" button becomes active on the interface. Users must click this button to start the restoration process. It triggers the node’s `/restore` API. The `/restore` API facilitates the restoration by taking the backup data from S3 and applying it to the node
 
-    \
+    <br>

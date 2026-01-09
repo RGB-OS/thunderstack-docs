@@ -36,7 +36,7 @@ The notification will appear at the top of the node details page and include the
 
 ### **2. Automatic Bulk Upgrade (Scale or Wallet Plan Feature)**
 
-For users subscribed to the **Scale or** **Wallet Plan (see** [**Billing**](broken-reference)**)**, the system provides a feature for **automatic bulk upgrades**.
+For users subscribed to the **Scale or** **Wallet Plan (see** [**Billing**](/broken/pages/KnQ2mWQGOlQ6SBggEmOF)**)**, the system provides a feature for **automatic bulk upgrades**.
 
 **How Automatic Bulk Upgrades Work**
 

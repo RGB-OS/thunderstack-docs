@@ -41,8 +41,7 @@ Currently supported:
 | ------ | -------------------------------------------------------------------------------------- |
 | `sign` | Signs a base64-encoded PSBT using the mnemonic-derived key and returns the signed PSBT |
 
-> New methods can be added by extending the `methodHandlers` map.\
->
+> New methods can be added by extending the `methodHandlers` map.<br>
 
 ***
 

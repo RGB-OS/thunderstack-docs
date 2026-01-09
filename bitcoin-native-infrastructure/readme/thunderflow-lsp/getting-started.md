@@ -25,8 +25,7 @@
 
 
 
-1.  **Confirm Payment:** Pay using BTC or RGB assets.\
-
+1.  **Confirm Payment:** Pay using BTC or RGB assets.<br>
 
     <figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 2.  **Channel Opening:** The channel will be provisioned and monitored in real time.
