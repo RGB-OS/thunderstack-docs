@@ -9,7 +9,7 @@ This guide shows how to **create a Lightning invoice** (BTC or RGB asset), **pay
 ### Prerequisites
 
 * **RGB SDK repository:** [https://github.com/RGB-OS/rgb-sdk](https://github.com/RGB-OS/rgb-sdk)
-* **UTEXO API endpoint:** [https://node-api.thunderstack.org](https://node-api.thunderstack.org/)
+* **UTEXO API endpoint:** [https://rgb-node-demo.test.thunderstack.org](https://rgb-node-demo.test.thunderstack.org)
 * **Install SDK (alpha tag):**
 
 ```bash
@@ -477,7 +477,7 @@ Creates a Lightning invoice for receiving **BTC** or **asset** payments over the
 
 ```bash
 curl -X 'POST' \
-  'http://api.utexo.com/lightning/create-invoice' \
+  'https://rgb-node-demo.test.thunderstack.org/lightning/create-invoice' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -493,7 +493,7 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'http://api.utexo.com/lightning/create-invoice' \
+  'https://rgb-node-demo.test.thunderstack.org/lightning/create-invoice' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -551,7 +551,7 @@ Returns the status of a Lightning invoice created with `create-invoice`. Support
 
 ```bash
 curl -X 'GET' \
-  'http://api.utexo.com/lightning/receive-request/c3b6538c-79fd-4b03-b5dd-d00f42e893cb' \
+  'https://rgb-node-demo.test.thunderstack.org/lightning/receive-request/c3b6538c-79fd-4b03-b5dd-d00f42e893cb' \
   -H 'accept: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
   -H 'xpub-col: <XPUB_COL>' \
@@ -603,7 +603,7 @@ Works for both BTC and asset payments.
 
 ```bash
 curl -X 'GET' \
-  'http://api.utexo.com/lightning/send-request/abc123-def456-ghi789' \
+  'https://rgb-node-demo.test.thunderstack.org/lightning/send-request/abc123-def456-ghi789' \
   -H 'accept: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
   -H 'xpub-col: <XPUB_COL>' \
@@ -650,7 +650,7 @@ Begins a Lightning invoice payment process and returns a **PSBT** that must be s
 
 ```bash
 curl -X 'POST' \
-  'http://api.utexo.com/lightning/pay-invoice-begin' \
+  'https://rgb-node-demo.test.thunderstack.org/lightning/pay-invoice-begin' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -697,7 +697,7 @@ Works the same as a pay-invoice flow, but uses `signed_psbt` instead of the invo
 
 ```bash
 curl -X 'POST' \
-  'http://api.utexo.com/lightning/pay-invoice-end' \
+  'https://rgb-node-demo.test.thunderstack.org/lightning/pay-invoice-end' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
