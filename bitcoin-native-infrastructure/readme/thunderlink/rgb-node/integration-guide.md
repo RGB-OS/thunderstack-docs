@@ -66,7 +66,27 @@ console.log("Wallet registered", registerResult);
 
 ***
 
-### Step 2. Check Balances (Optional)
+### Step 2. Get On-chain Receive Address and Invoice
+
+Use `onchainReceive()` to get a BTC address and asset invoice for on-chain deposits.
+
+```javascript
+const depositAddress = await wallet.onchainReceive();
+console.log("BTC Address:", depositAddress.btc_address);
+console.log("Asset Invoice:", depositAddress.asset_invoice);
+```
+
+**Example response:**
+
+```json
+{
+  "btc_address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+  "asset_invoice": "rgb:1234567890abcdef...",
+  "expires_at": "2026-01-08T12:00:00Z"
+}
+```
+
+### Step 3. Check Balances (Optional)
 
 `getBalance()` returns BTC and asset balances.
 
@@ -110,7 +130,7 @@ Example response:
 
 ***
 
-### Step 3. Create a Lightning Invoice
+### Step 4. Create a Lightning Invoice
 
 #### Create a BTC Lightning invoice
 
@@ -153,7 +173,7 @@ Example response:
 
 ***
 
-### Step 4. Pay the Invoice (Test via cURL)
+### Step 5. Pay the Invoice (Test via cURL)
 
 Replace `<invoice>` with the invoice string returned above.
 
@@ -170,7 +190,7 @@ curl -X 'POST' \
 
 ***
 
-### Step 5. Check Invoice Status
+### Step 6. Check Invoice Status
 
 Use the invoice request `id` from **Step 3**.
 
@@ -198,7 +218,7 @@ Example response:
 
 ***
 
-### Step 6. Confirm Balance Updated
+### Step 7. Confirm Balance Updated
 
 After the invoice is settled, BTC Lightning balance should be updated.
 
@@ -215,6 +235,60 @@ Example:
   "details": []
 }
 ```
+
+***
+
+### Step 8. List Lightning Payments
+
+Use `listLightningPayments()` to retrieve all Lightning payments (both inbound and outbound).
+
+```javascript
+const payments = await wallet.listLightningPayments();
+console.log("Payments:", payments.payments);
+```
+
+**Example response:**
+
+```json
+{
+  "payments": [
+    {
+      "amt_msat": 3000000,
+      "asset_amount": 42,
+      "asset_id": "rgb:CJkb4YZw-jRiz2sk-~PARPio-wtVYI1c-XAEYCqO-wTfvRZ8",
+      "payment_hash": "3febfae1e68b190c15461f4c2a3290f9af1dae63fd7d620d2bd61601869026cd",
+      "inbound": true,
+      "status": "Pending",
+      "created_at": 1691160765,
+      "updated_at": 1691162674,
+      "payee_pubkey": "03b79a4bc1ec365524b4fab9a39eb133753646babb5a1da5c4bc94c53110b7795d"
+    },
+    {
+      "amt_msat": 1000000,
+      "asset_amount": null,
+      "asset_id": null,
+      "payment_hash": "abc123def456...",
+      "inbound": false,
+      "status": "Succeeded",
+      "created_at": 1691160800,
+      "updated_at": 1691162850,
+      "payee_pubkey": "02abc123..."
+    }
+  ]
+}
+```
+
+**Payment fields:**
+
+* `amt_msat`: Amount in millisatoshis
+* `asset_amount`: Asset amount (if asset payment)
+* `asset_id`: Asset ID (if asset payment)
+* `payment_hash`: Payment hash identifier
+* `inbound`: `true` for received payments, `false` for sent payments
+* `status`: Payment status (`Pending`, `Succeeded`, `Failed`)
+* `created_at`: Timestamp when payment was created
+* `updated_at`: Timestamp when payment was last updated
+* `payee_pubkey`: Public key of the payee (recipient)
 
 ***
 
@@ -347,6 +421,160 @@ Example response:
 
 ***
 
+### Step 3. Send On-chain from UTEXO
+
+This flow uses:
+
+* `onchainSendBegin` — returns a PSBT
+* `signPsbt` — sign PSBT using user private keys
+* `onchainSendEnd` — broadcast the on-chain send
+
+Two reference implementations of `signPsbt`:
+
+* https://github.com/RGB-OS/rgb-sdk-rn/blob/main/src/crypto/signer.ts#L195
+* https://github.com/RGB-OS/rgb-sdk/blob/main/src/crypto/signer.ts#L357
+
+```javascript
+// Send BTC on-chain
+const base64Psbt = await wallet.onchainSendBegin({
+  address_or_rgbinvoice: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+  amount_sats: 100000,
+  fee_rate: 1
+});
+
+console.log("Base64 PSBT:", base64Psbt);
+
+const signedPsbt = await wallet.signPsbt(base64Psbt);
+
+const sendResult = await wallet.onchainSendEnd({
+  signed_psbt: signedPsbt,
+});
+
+console.log("Send result:", sendResult);
+```
+
+**Example response:**
+
+```json
+{
+  "send_id": "4334615b-6c53-4af5-a70a-8b5fc38614bf",
+  "txid": "abc123def456..."
+}
+```
+
+**Send Asset on-chain:**
+
+```javascript
+const base64Psbt = await wallet.onchainSendBegin({
+  address_or_rgbinvoice: "rgb:1234567890abcdef...",
+  fee_rate: 1,
+  asset: {
+    asset_id: "rgb:le3Ky3LQ-gM7hQKS-PW~zf2q-tBZxj7N-iaw5hbt-UoMQvAg",
+    amount: 10
+  }
+});
+
+const signedPsbt = await wallet.signPsbt(base64Psbt);
+
+const assetSendResult = await wallet.onchainSendEnd({
+  signed_psbt: signedPsbt,
+});
+
+console.log("Asset send result:", assetSendResult);
+```
+
+***
+
+### Step 4. Check On-chain Send Status
+
+Use the send ID returned in Step 3.
+
+```javascript
+const sendStatus = await wallet.getOnchainSendStatus(
+  "4334615b-6c53-4af5-a70a-8b5fc38614bf"
+);
+
+console.log("On-chain send status:", sendStatus);
+```
+
+**Example response:**
+
+```json
+{
+  "send_id": "4334615b-6c53-4af5-a70a-8b5fc38614bf",
+  "status": "pending",
+  "address_or_rgbinvoice": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+  "amount_sats_requested": 100000,
+  "amount_sats_sent": 99500,
+  "asset": null,
+  "close_txids": [],
+  "sweep_txid": null,
+  "fee_sats": 500,
+  "timestamps": {
+    "created": 1691160765,
+    "completed": 1691162674
+  },
+  "error_code": null,
+  "error_message": null,
+  "retryable": false
+}
+```
+
+***
+
+### Step 5. List On-chain Transfers
+
+Use `listOnchainTransfers()` to retrieve all on-chain transfers for a specific asset.
+
+```javascript
+const transfers = await wallet.listOnchainTransfers(
+  "rgb:le3Ky3LQ-gM7hQKS-PW~zf2q-tBZxj7N-iaw5hbt-UoMQvAg"
+);
+
+console.log("On-chain transfers:", transfers);
+```
+
+**Example response:**
+
+```json
+[
+  {
+    "idx": 0,
+    "batch_transfer_idx": 1,
+    "created_at": 1691160765,
+    "updated_at": 1691162674,
+    "status": 2,
+    "amount": 1000,
+    "kind": 3,
+    "txid": "abc123def456...",
+    "recipient_id": "rgb:recipient...",
+    "receive_utxo": {
+      "txid": "def456...",
+      "vout": 0
+    },
+    "change_utxo": null,
+    "expiration": 1691164365,
+    "transport_endpoints": []
+  }
+]
+```
+
+**Transfer fields:**
+
+* `idx`: Transfer index
+* `batch_transfer_idx`: Batch transfer index
+* `created_at`: Timestamp when transfer was created
+* `updated_at`: Timestamp when transfer was last updated
+* `status`: Transfer status
+* `amount`: Transfer amount
+* `kind`: Transfer kind/type
+* `txid`: Transaction ID
+* `recipient_id`: Recipient identifier
+* `receive_utxo`: Receive UTXO details (txid, vout)
+* `change_utxo`: Change UTXO details (if any)
+* `expiration`: Expiration timestamp
+* `transport_endpoints`: Transport endpoints array
+
 ### Notes
 
 * `payLightningInvoiceBegin()` returns a **base64 PSBT** that must be signed by the user.
@@ -374,11 +602,11 @@ All endpoints below require the following auth headers:
 
 ***
 
-### GET /wallet/balance
+### GET /lightning/balance
 
 #### Overview
 
-Get wallet balance including BTC balance and asset balances.
+Get lightning balance including BTC balance and asset balances.
 
 #### Method
 
@@ -386,19 +614,19 @@ Get wallet balance including BTC balance and asset balances.
 
 #### Endpoint
 
-`/wallet/balance`
+`/lightning/balance`
 
 #### Headers
 
-* `xpub-van` _(string, required)_
-* `xpub-col` _(string, required)_
-* `master-fingerprint` _(string, required)_
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
 
 #### Example Request
 
 ```bash
 curl -X 'GET' \
-  'http://api.utexo.com/wallet/balance' \
+  'http://api.utexo.com/lightning/balance' \
   -H 'accept: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
   -H 'xpub-col: <XPUB_COL>' \
@@ -456,7 +684,7 @@ curl -X 'GET' \
 
 #### Overview
 
-Creates a Lightning invoice for receiving **BTC** or **asset** payments over the Lightning Network.
+Creates a Lightning invoice for receiving BTC or asset payments over the Lightning Network.
 
 #### Method
 
@@ -468,16 +696,16 @@ Creates a Lightning invoice for receiving **BTC** or **asset** payments over the
 
 #### Headers
 
-* `xpub-van` _(string, required)_
-* `xpub-col` _(string, required)_
-* `master-fingerprint` _(string, required)_
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
 * `Content-Type: application/json`
 
 #### Example Request (BTC)
 
 ```bash
 curl -X 'POST' \
-  'https://rgb-node-demo.test.thunderstack.org/lightning/create-invoice' \
+  'http://api.utexo.com/lightning/create-invoice' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -493,7 +721,7 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://rgb-node-demo.test.thunderstack.org/lightning/create-invoice' \
+  'http://api.utexo.com/lightning/create-invoice' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -539,19 +767,19 @@ Returns the status of a Lightning invoice created with `create-invoice`. Support
 
 #### Path Parameters
 
-* `request_id` _(string, required)_ — Receive request ID returned by **create-invoice**
+* `request_id` _(string, required)_ — The request ID of the Lightning invoice
 
 #### Headers
 
-* `xpub-van` _(string, required)_
-* `xpub-col` _(string, required)_
-* `master-fingerprint` _(string, required)_
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
 
 #### Example Request
 
 ```bash
 curl -X 'GET' \
-  'https://rgb-node-demo.test.thunderstack.org/lightning/receive-request/c3b6538c-79fd-4b03-b5dd-d00f42e893cb' \
+  'http://api.utexo.com/lightning/receive-request/c3b6538c-79fd-4b03-b5dd-d00f42e893cb' \
   -H 'accept: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
   -H 'xpub-col: <XPUB_COL>' \
@@ -577,9 +805,7 @@ curl -X 'GET' \
 
 #### Overview
 
-Returns the current status of a Lightning payment initiated with `pay-invoice-begin`/`pay-invoice-end`.
-
-Works for both BTC and asset payments.
+Returns the current status of a Lightning payment initiated with the pay-invoice flow. Works for both BTC and asset payments.
 
 #### Method
 
@@ -591,19 +817,19 @@ Works for both BTC and asset payments.
 
 #### Path Parameters
 
-* `request_id` _(string, required)_ — Send request ID returned by **pay-invoice-end**
+* `request_id` _(string, required)_ — The request ID of the Lightning send request
 
 #### Headers
 
-* `xpub-van` _(string, required)_
-* `xpub-col` _(string, required)_
-* `master-fingerprint` _(string, required)_
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
 
 #### Example Request
 
 ```bash
 curl -X 'GET' \
-  'https://rgb-node-demo.test.thunderstack.org/lightning/send-request/abc123-def456-ghi789' \
+  'http://api.utexo.com/lightning/send-request/abc123-def456-ghi789' \
   -H 'accept: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
   -H 'xpub-col: <XPUB_COL>' \
@@ -625,11 +851,74 @@ curl -X 'GET' \
 
 ***
 
+### POST /lightning/fee-estimate
+
+#### Overview
+
+Estimates the routing fee required to pay a Lightning invoice. For asset payments, the returned fee is always denominated in satoshis.
+
+#### Method
+
+`POST`
+
+#### Endpoint
+
+`/lightning/fee-estimate`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+* `Content-Type: application/json`
+
+#### Example Request (BTC)
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/fee-estimate' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>' \
+  -d '{
+    "invoice": "lnbc1234567890..."
+  }'
+```
+
+#### Example Request (Asset)
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/fee-estimate' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>' \
+  -d '{
+    "invoice": "lnbc1234567890...",
+    "asset": {
+      "asset_id": "rgb:1234567890abcdef...",
+      "amount": 100
+    }
+  }'
+```
+
+#### Example Response
+
+```json
+50
+```
+
+***
+
 ### POST /lightning/pay-invoice-begin
 
 #### Overview
 
-Begins a Lightning invoice payment process and returns a **PSBT** that must be signed by the user.
+Begins a Lightning invoice payment process. Returns the PSBT (should be signed by user).
 
 #### Method
 
@@ -641,16 +930,16 @@ Begins a Lightning invoice payment process and returns a **PSBT** that must be s
 
 #### Headers
 
-* `xpub-van` _(string, required)_
-* `xpub-col` _(string, required)_
-* `master-fingerprint` _(string, required)_
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
 * `Content-Type: application/json`
 
 #### Example Request
 
 ```bash
 curl -X 'POST' \
-  'https://rgb-node-demo.test.thunderstack.org/lightning/pay-invoice-begin' \
+  'http://api.utexo.com/lightning/pay-invoice-begin' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -664,8 +953,8 @@ curl -X 'POST' \
 
 #### Example Response
 
-```txt
-cHNidP8BAHwBAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+```json
+"cHNidP8BAHwBAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
 ```
 
 ***
@@ -674,9 +963,7 @@ cHNidP8BAHwBAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 
 #### Overview
 
-Completes a Lightning invoice payment using a **signed PSBT**.
-
-Works the same as a pay-invoice flow, but uses `signed_psbt` instead of the invoice.
+Completes a Lightning invoice payment using signed PSBT. Works the same as pay-invoice but uses `signed_psbt` instead of invoice.
 
 #### Method
 
@@ -688,16 +975,16 @@ Works the same as a pay-invoice flow, but uses `signed_psbt` instead of the invo
 
 #### Headers
 
-* `xpub-van` _(string, required)_
-* `xpub-col` _(string, required)_
-* `master-fingerprint` _(string, required)_
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
 * `Content-Type: application/json`
 
 #### Example Request
 
 ```bash
 curl -X 'POST' \
-  'https://rgb-node-demo.test.thunderstack.org/lightning/pay-invoice-end' \
+  'http://api.utexo.com/lightning/pay-invoice-end' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'xpub-van: <XPUB_VAN>' \
@@ -719,6 +1006,457 @@ curl -X 'POST' \
   "fee_sats": 50,
   "created_at": "2024-01-01T12:00:00Z"
 }
+```
+
+***
+
+### GET /lightning/listpayments
+
+#### Overview
+
+Lists Lightning payments.
+
+#### Method
+
+`GET`
+
+#### Endpoint
+
+`/lightning/listpayments`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+
+#### Example Request
+
+```bash
+curl -X 'GET' \
+  'http://api.utexo.com/lightning/listpayments' \
+  -H 'accept: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>'
+```
+
+#### Example Response
+
+```json
+{
+  "payments": [
+    {
+      "amt_msat": 3000000,
+      "asset_amount": 42,
+      "asset_id": "rgb:CJkb4YZw-jRiz2sk-~PARPio-wtVYI1c-XAEYCqO-wTfvRZ8",
+      "payment_hash": "3febfae1e68b190c15461f4c2a3290f9af1dae63fd7d620d2bd61601869026cd",
+      "inbound": true,
+      "status": "Pending",
+      "created_at": 1691160765,
+      "updated_at": 1691162674,
+      "payee_pubkey": "03b79a4bc1ec365524b4fab9a39eb133753646babb5a1da5c4bc94c53110b7795d"
+    }
+  ]
+}
+```
+
+***
+
+### GET /lightning/onchain-receive
+
+#### Overview
+
+Get an on-chain receive address for receiving assets. Returns a BTC address and asset invoice that can be used for on-chain deposits.
+
+#### Method
+
+`GET`
+
+#### Endpoint
+
+`/lightning/onchain-receive`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+
+#### Example Request
+
+```bash
+curl -X 'GET' \
+  'http://api.utexo.com/lightning/onchain-receive' \
+  -H 'accept: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>'
+```
+
+#### Example Response
+
+```json
+{
+  "btc_address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+  "asset_invoice": "rgb:1234567890abcdef...",
+  "expires_at": "2024-01-02T12:00:00Z"
+}
+```
+
+***
+
+### GET /lightning/balance
+
+#### Overview
+
+Get wallet balance including BTC balance and asset balances.
+
+#### Method
+
+`GET`
+
+#### Endpoint
+
+`/lightning/balance`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+
+#### Example Request
+
+```bash
+curl -X 'GET' \
+  'http://api.utexo.com/lightning/balance' \
+  -H 'accept: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>'
+```
+
+#### Example Response
+
+```json
+{
+  "balance": {
+    "vanilla": {
+      "settled": 1000000,
+      "future": 500000,
+      "spendable": 500000
+    },
+    "colored": {
+      "settled": 500000,
+      "future": 0,
+      "spendable": 500000
+    },
+    "offchain_balance": {
+      "total": 10000,
+      "details": [
+        {
+          "expiry_time": "2024-01-02T12:00:00Z",
+          "amount": 5000
+        },
+        {
+          "expiry_time": "2024-01-03T12:00:00Z",
+          "amount": 5000
+        }
+      ]
+    }
+  },
+  "asset_balances": [
+    {
+      "asset_id": "rgb:1234567890abcdef...",
+      "ticker": "USDT",
+      "precision": 8,
+      "balance": {
+        "settled": 1000000,
+        "future": 0,
+        "spendable": 1000000,
+        "offchain_outbound": 0
+      }
+    }
+  ]
+}
+```
+
+***
+
+### POST /lightning/settle
+
+#### Overview
+
+Settle balances in the wallet.
+
+#### Method
+
+`POST`
+
+#### Endpoint
+
+`/lightning/settle`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+
+#### Example Request
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/settle' \
+  -H 'accept: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>'
+```
+
+#### Example Response
+
+```json
+{
+  "result": "success"
+}
+```
+
+***
+
+### POST /lightning/onchain-send-begin
+
+#### Overview
+
+Begins an on-chain send process from UTEXO. Returns the request encoded as base64 (mock PSBT). Later this should construct and return a real base64 PSBT.
+
+#### Method
+
+`POST`
+
+#### Endpoint
+
+`/lightning/onchain-send-begin`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+* `Content-Type: application/json`
+
+#### Example Request (BTC)
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/onchain-send-begin' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>' \
+  -d '{
+    "address_or_rgbinvoice": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+    "amount_sats": 100000,
+    "fee_rate": 1
+  }'
+```
+
+#### Example Request (Asset)
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/onchain-send-begin' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>' \
+  -d '{
+    "address_or_rgbinvoice": "rgb:1234567890abcdef...",
+    "fee_rate": 1,
+    "asset": {
+      "asset_id": "rgb:1234567890abcdef...",
+      "amount": 100
+    }
+  }'
+```
+
+#### Example Response
+
+```json
+"cHNidP8BAHwBAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+```
+
+***
+
+### POST /lightning/onchain-send-end
+
+#### Overview
+
+Completes an on-chain send from UTEXO using signed PSBT.
+
+#### Method
+
+`POST`
+
+#### Endpoint
+
+`/lightning/onchain-send-end`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+* `Content-Type: application/json`
+
+#### Example Request
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/onchain-send-end' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>' \
+  -d '{
+    "signed_psbt": "cHNidP8BAHwBAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  }'
+```
+
+#### Example Response
+
+```json
+{
+  "send_id": "4334615b-6c53-4af5-a70a-8b5fc38614bf",
+  "txid": "abc123def456..."
+}
+```
+
+***
+
+### GET /onchain-send/{send\_id}
+
+#### Overview
+
+Gets the status of an on-chain send by send ID.
+
+#### Method
+
+`GET`
+
+#### Endpoint
+
+`/onchain-send/{send_id}`
+
+#### Path Parameters
+
+* `send_id` _(string, required)_ — The on-chain send ID
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+
+#### Example Request
+
+```bash
+curl -X 'GET' \
+  'http://api.utexo.com/onchain-send/4334615b-6c53-4af5-a70a-8b5fc38614bf' \
+  -H 'accept: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>'
+```
+
+#### Example Response
+
+```json
+{
+  "send_id": "4334615b-6c53-4af5-a70a-8b5fc38614bf",
+  "status": "pending",
+  "address_or_rgbinvoice": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+  "amount_sats_requested": 100000,
+  "amount_sats_sent": 99500,
+  "asset": null,
+  "close_txids": [],
+  "sweep_txid": null,
+  "fee_sats": 500,
+  "timestamps": {
+    "created": 1691160765,
+    "completed": 1691162674
+  },
+  "error_code": null,
+  "error_message": null,
+  "retryable": false
+}
+```
+
+***
+
+### POST /lightning/listtransfers
+
+#### Overview
+
+Lists on-chain transfers for a specific asset.
+
+#### Method
+
+`POST`
+
+#### Endpoint
+
+`/lightning/listtransfers`
+
+#### Headers
+
+* `xpub-van` _(required)_
+* `xpub-col` _(required)_
+* `master-fingerprint` _(required)_
+* `Content-Type: application/json`
+
+#### Example Request
+
+```bash
+curl -X 'POST' \
+  'http://api.utexo.com/lightning/listtransfers' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'xpub-van: <XPUB_VAN>' \
+  -H 'xpub-col: <XPUB_COL>' \
+  -H 'master-fingerprint: <MASTER_FINGERPRINT>' \
+  -d '{
+    "asset_id": "rgb:1234567890abcdef..."
+  }'
+```
+
+#### Example Response
+
+```json
+[
+  {
+    "idx": 0,
+    "batch_transfer_idx": 1,
+    "created_at": 1691160765,
+    "updated_at": 1691162674,
+    "status": 2,
+    "amount": 1000,
+    "kind": 3,
+    "txid": "abc123...",
+    "recipient_id": "rgb:recipient...",
+    "receive_utxo": {
+      "txid": "def456...",
+      "vout": 0
+    },
+    "change_utxo": null,
+    "expiration": 1691164365,
+    "transport_endpoints": []
+  }
+]
 ```
 
 ***
