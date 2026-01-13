@@ -8,7 +8,7 @@ This guide shows how to **create a Lightning invoice** (BTC or RGB asset), **pay
 
 ### Prerequisites
 
-* **RGB SDK repository:** [https://github.com/RGB-OS/rgb-sdk](https://github.com/RGB-OS/rgb-sdk)
+* **RGB SDK repository:** [https://github.com/RGB-OS/rgb-sdk/tree/alpha](https://github.com/RGB-OS/rgb-sdk/tree/alpha)
 * **UTEXO API endpoint:** [https://rgb-node-demo.test.thunderstack.org](https://rgb-node-demo.test.thunderstack.org)
 * **Install SDK (alpha tag):**
 
