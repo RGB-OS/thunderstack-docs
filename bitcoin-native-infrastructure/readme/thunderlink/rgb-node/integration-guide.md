@@ -34,7 +34,7 @@ const keys = {
 #### Test Asset Id
 
 ```txt
-rgb:le3Ky3LQ-gM7hQKS-PW~zf2q-tBZxj7N-iaw5hbt-UoMQvAg
+rgb:tpk3SgP4-mRdSCNI-Pu~EDie-eBjfn5P-4HQdIKi-SUtqbe8
 ```
 
 ***
@@ -114,7 +114,7 @@ Example response:
   },
   "asset_balances": [
     {
-      "asset_id": "rgb:le3Ky3LQ-gM7hQKS-PW~zf2q-tBZxj7N-iaw5hbt-UoMQvAg",
+      "asset_id": "rgb:tpk3SgP4-mRdSCNI-Pu~EDie-eBjfn5P-4HQdIKi-SUtqbe8",
       "ticker": "TESTUSD",
       "precision": 2,
       "balance": {
@@ -148,7 +148,7 @@ console.log("Invoice:", btcInvoice);
 ```ts
 const assetInvoice = await wallet.createLightningInvoice({
   asset: {
-    asset_id: "rgb:le3Ky3LQ-gM7hQKS-PW~zf2q-tBZxj7N-iaw5hbt-UoMQvAg",
+    asset_id: "rgb:tpk3SgP4-mRdSCNI-Pu~EDie-eBjfn5P-4HQdIKi-SUtqbe8",
     amount: 10,
   },
   expiry_seconds: 3600,
@@ -179,10 +179,10 @@ Replace `<invoice>` with the invoice string returned above.
 
 ```bash
 curl -X 'POST' \
-  'https://node-api.thunderstack.org/c17bc5d0-80b1-7050-5af5-dfd8a67834f1/99fa256286d34f59b9b65551d30da878/sendpayment' \
+  'https://node-api.thunderstack.org/c17bc5d0-80b1-7050-5af5-dfd8a67834f1/c7f1ae1277124b5aab911ccf68321fee/sendpayment' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <TOKEN>' \
+  -H 'Authorization: Bearer EnYKDBgDIggKBggGEgIYDRIkCAASIF1J86DmEmBmcRSph4SegHX-xN5GSU12pK94w4yBavQeGkBq-ikpXXy2Ox2kpAwcYAcrVN9CNjOWXQJ7huxtx-GRfzVwijQqWHF3tzTKAIyTu9dLqbV1jXKzeubMEphQ098EIiIKIMns1a0RC71sE9DCRDpZ5BfhR4TrqXihQ-TDvAXBuF4F' \
   -d '{
     "invoice": "<invoice>"
   }'
@@ -255,7 +255,7 @@ console.log("Payments:", payments.payments);
     {
       "amt_msat": 3000000,
       "asset_amount": 42,
-      "asset_id": "rgb:CJkb4YZw-jRiz2sk-~PARPio-wtVYI1c-XAEYCqO-wTfvRZ8",
+      "asset_id": "rgb:tpk3SgP4-mRdSCNI-Pu~EDie-eBjfn5P-4HQdIKi-SUtqbe8",
       "payment_hash": "3febfae1e68b190c15461f4c2a3290f9af1dae63fd7d620d2bd61601869026cd",
       "inbound": true,
       "status": "Pending",
@@ -310,10 +310,10 @@ This guide shows how to **pay a Lightning invoice** (BTC or RGB asset) using `rg
 
 ```bash
 curl -X 'POST' \
-  'https://cognito-node-api.thunderstack.org/nodes/c17bc5d0-80b1-7050-5af5-dfd8a67834f1/99fa256286d34f59b9b65551d30da878/lninvoice' \
+  'https://node-api.thunderstack.org/c17bc5d0-80b1-7050-5af5-dfd8a67834f1/c7f1ae1277124b5aab911ccf68321fee/lninvoice' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <TOKEN>' \
+  -H 'Authorization: Bearer EnYKDBgDIggKBggGEgIYDRIkCAASIF1J86DmEmBmcRSph4SegHX-xN5GSU12pK94w4yBavQeGkBq-ikpXXy2Ox2kpAwcYAcrVN9CNjOWXQJ7huxtx-GRfzVwijQqWHF3tzTKAIyTu9dLqbV1jXKzeubMEphQ098EIiIKIMns1a0RC71sE9DCRDpZ5BfhR4TrqXihQ-TDvAXBuF4F' \
   -d '{
     "amt_msat": 10000000,
     "expiry_sec": 420
@@ -326,12 +326,12 @@ curl -X 'POST' \
 
 ```bash
 curl -X 'POST' \
-  'https://cognito-node-api.thunderstack.org/nodes/c17bc5d0-80b1-7050-5af5-dfd8a67834f1/99fa256286d34f59b9b65551d30da878/lninvoice' \
+  'https://node-api.thunderstack.org/c17bc5d0-80b1-7050-5af5-dfd8a67834f1/c7f1ae1277124b5aab911ccf68321fee/lninvoice' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <TOKEN>' \
+  -H 'Authorization: Bearer EnYKDBgDIggKBggGEgIYDRIkCAASIF1J86DmEmBmcRSph4SegHX-xN5GSU12pK94w4yBavQeGkBq-ikpXXy2Ox2kpAwcYAcrVN9CNjOWXQJ7huxtx-GRfzVwijQqWHF3tzTKAIyTu9dLqbV1jXKzeubMEphQ098EIiIKIMns1a0RC71sE9DCRDpZ5BfhR4TrqXihQ-TDvAXBuF4F' \
   -d '{
-    "asset_id": "rgb:le3Ky3LQ-gM7hQKS-PW~zf2q-tBZxj7N-iaw5hbt-UoMQvAg",
+    "asset_id": "rgb:tpk3SgP4-mRdSCNI-Pu~EDie-eBjfn5P-4HQdIKi-SUtqbe8",
     "amount": "10",
     "expiry_sec": 420
   }'
